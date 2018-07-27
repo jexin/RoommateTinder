@@ -4,9 +4,10 @@ Unit test for python
 - takes the function and test ONLY the function using simple inputs
 - "test driven development"
 
-Start with Python
-Match Universities first
-Have message board show contact info
+
+- Start with Python
+- Match Universities first
+- Have message board show contact info
 
 Required:
 - Our profile
