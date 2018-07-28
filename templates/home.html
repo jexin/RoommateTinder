@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<title>*insert webapp name*</title>
+
+<h1>Welcome to *insert webapp name*!</h1>
+
+<!--
+<div>
+  {% if current_user %}
+    Welcome, {{current_user.email()}}
+    <a href="{{logout_url}}">Log out</a>
+  {% else %}
+    <a href="{{login_url}}">Log in</a>
+  {% endif %}
+</div>
+
+{% if current_user and not current_person %}  current_user refers to logged in(from api), current_person refers to profile(person model)
+  <br><br><br>
+  <form action="/create" method="post">  doesn't ask for email because  it's already stored in database when they signed in
+    Your name: <input name="name"><br>
+    Bio: <input name="biography"><br>
+    <button>Create Profile</button>
+  </form>
+  <br><br>
+{% endif %}
+
+<ul>
+  {% for person in people %}
+    {% if current_user and current_user.email() == person.email %}
+      <li><strong><a href="/profile?key={{person.key.urlsafe()}}">{{person.name}}</a></strong></li>
+    {% else %}
+      <li><a href="/profile?key={{person.key.urlsafe()}}">{{person.name}}</a></li>
+    {% endif %}
+  {% endfor %}
+</ul>
+-->
