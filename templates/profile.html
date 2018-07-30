@@ -17,7 +17,9 @@
 
 <img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}">
 <h1>{{person.name}}</h1>
-<div>About me: {{person.biography}}</div>
+<div>Email: {{person.email}}</div>
+<div>About me: {{person.bio}}</div>
+<img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}">
 
 {% if is_my_profile %}
   <form action="/upload_photo" method="post" enctype="multipart/form-data">
