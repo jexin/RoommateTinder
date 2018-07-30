@@ -4,64 +4,63 @@
 <link rel="stylesheet" href="/stylesheets/home.css">
 
 <ul id="navbar">
-  <li><a href="/">Home</a></li>
-  <li><a href="">About</a></li>
-  <li><a href="">My Profile</li>
-  <li>
-    {% if current_user %}
-      <a href="{{logout_url}}">Log out</a>
-    {% else %}
-      <a href="{{login_url}}">Log in</a>
-    {% endif %}
-  </li>
+  <br>
+  <label>Email:</label>
+  <input name="email"><br>
+  <br>
+  <label>Password</label>
+  <input type="password" name="password"><br>
+  <button type="button">Log In</button>
+
 </ul>
 
 <h1>Welcome to ROFL!</h1>
 <h2>Roommates On Fantastic Levels</h2>
 
 <!--buttons-->
-<button type="button">Log In</button>
-<button type="button">Create Account</button>
 
+
+<!--
 <div>
   {% if current_user %}
     Welcome, {{current_user.email()}}
   {% endif %}
 </div>
+-->
 
-{% if current_user and not current_person %} <!--current_user refers to logged in(from api), current_person refers to profile(person model)-->
-  <br><br><br>
-  <form action="/create" method="post"> <!--doesn't ask for email because it's already stored in database when they signed in-->
-    <br>
-    <label>Your name:</label>
-    <input name="name"><br>
-    <br>
-    <label>Email:</label>
-    <input name="email"><br>
-    <br>
-    <label>Gender:</label>
-    <input name="gender"><br>
-    <br>
-    <label>School:</label>
-    <input name="school"><br>
-    <br>
-    <label>Year</label>
-    <select name="year">
-      <option value="freshman" selected>Freshman</option>
-      <option value="sophomore">Sophomore</option>
-      <option value="junior">Junior</option>
-      <option value="senior">Senior</option>
-    </select>
-    <br>
-    <label>City</label>
-    <input name="city"><br>
-    <br>
-    <label>State</label>
-    <input name="state"><br>
-    <br>
-    <label>Bio</label>
-    <input name="bio"><br>
-    <button>Create Profile</button>
-  </form>
-  <br><br>
-{% endif %}
+ <!--{% if current_user and not current_person %}current_user refers to logged in(from api), current_person refers to profile(person model)-->
+<br><br><br>
+<form action="/create" method="post"> <!--doesn't ask for email because it's already stored in database when they signed in-->
+  <br>
+  <label>Your name:</label>
+  <input name="name"><br>
+  <br>
+  <label>Email:</label>
+  <input name="email"><br>
+  <br>
+  <label>Gender:</label>
+  <input name="gender"><br>
+  <br>
+  <label>College:</label>
+  <input name="college"><br>
+  <br>
+  <label>Year</label>
+  <select name="year">
+    <option value="freshman" selected>Freshman</option>
+    <option value="sophomore">Sophomore</option>
+    <option value="junior">Junior</option>
+    <option value="senior">Senior</option>
+  </select>
+  <br>
+  <label>City</label>
+  <input name="city"><br>
+  <br>
+  <label>State</label>
+  <input name="state"><br>
+  <br>
+  <label>Bio</label>
+  <input name="bio"><br>
+  <button>Create Profile</button>
+</form>
+<br><br>
+<!--{% endif %}-->
