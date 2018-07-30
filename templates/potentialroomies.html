@@ -1,13 +1,27 @@
 <!--link to potential roommates-->
 <link rel="stylesheet" href="/stylesheets/potentialroomies.css">
 
-<button type="button">Home</button>
-<button type="button">My Profile</button>
-<button type="button">Log Out</button>
-<button type="button">My Matches</button>
-<button type="button">Potential Matches</button>
-<button type="button">View Profile</button>
-<button type="button">Like</button>
+<form action="/potentialroomies">
+    <input type="button" value="Home"/>
+</form>
+<form action="/profile">
+    <input type="button" value="My Profile"/>
+</form>
+<form action="/">
+    <input type="button" value="Log Out"/>
+</form>
+<form action="/potentialroomies">
+    <input type="button" value="My Matches"/>
+</form>
+<form action="/potentialroomies">
+    <input type="button" value="Potential Matches"/>
+</form>
+<form action="/profile">
+    <input type="button" value="View Profile"/>
+</form>
+<form action="/potentialroomies">
+    <input type="button" value="Like"/>
+</form>
 
 {% for person in people %}
   <ul>
