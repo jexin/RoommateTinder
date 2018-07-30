@@ -23,7 +23,7 @@
     <input type="button" value="Like"/>
 </form>
 
-{% for person in people %}
+{% for person in people %} <!--this currently isn't showing up bc sign up page isnt allowing people to be added to the database-->
   <div id = "roomieslist">
   <ul>
     <li><a href="/profile?key={{person.key.urlsafe()}}">{{person.name}}</a></li>
