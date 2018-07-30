@@ -41,6 +41,7 @@ class MainPage(webapp2.RequestHandler):
         # 3. Render the response
         logout_url = users.create_logout_url("/")
         login_url = users.create_login_url("/potentialroomies")
+        #greeting = '<a href="{}">Sign in</a>'.format(login_url)
 
         templateVars = {
             "people" : people,
@@ -108,6 +109,17 @@ class PhotoHandler(webapp2.RequestHandler):
 
 class PotentialRoomies(webapp2.RequestHandler):
     def get(self):
+        # videos = Video.query().fetch()
+        # comments_dict = {}
+        # for video in videos:
+        #     comments = Comment.query().filter(Comment.video_key == video.key).fetch()
+        #     if not comments:
+        #         comments = []
+        #     comments_dict[video.key] = comments
+        # templateVars = {
+        #     "videos" : video,
+        #     "comments" : comments_dict,
+        # }
         #1
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
