@@ -22,7 +22,7 @@
   <ul>
     <li>{{person.name}}</li>
     <form action="/profile?key={{person.key.urlsafe()}}">
-        <button>View Profile</button>
+    <a href="/profile?key={{person.key.urlsafe()}}">View Profile</a>
     </form>
     <form action="/potentialroomies">
         <button>Like</button>
