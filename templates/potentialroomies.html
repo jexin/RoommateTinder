@@ -6,3 +6,9 @@
 <button type="button">Potential Matches</button>
 <button type="button">View Profile</button>
 <button type="button">Like</button>
+
+{% for person in people %}
+  <ul>
+    <li><a href="/profile?key={{person.key.urlsafe()}}">{{person.name}}</a></li>
+  </ul>
+{% endfor %}
