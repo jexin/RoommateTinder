@@ -6,8 +6,8 @@
 <ul id="navbar">
   <li><a href="/">Home</a></li>
   <li><a href="">About</a></li>
-  <li style="float:right"><a href="">My Profile</li>
-  <li style="float:right">
+  <li><a href="">My Profile</li>
+  <li>
     {% if current_user %}
       <a href="{{logout_url}}">Log out</a>
     {% else %}
