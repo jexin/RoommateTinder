@@ -93,10 +93,20 @@ class PhotoHandler(webapp2.RequestHandler):
         self.response.headers["Content-Type"] = "image/jpg"
         self.response.write(person.photo)
 
+class PotentialRoomies(webapp2.RequestHandler):
+    def get(self):
+        #1
+
+        #2
+        #3
+        template = env.get_template("templates/potentialroomies")
+        self.response.write(template.render())
+
 app = webapp2.WSGIApplication([
     ("/", MainPage),
     ("/profile", ProfilePage),
     ("/create", CreateHandler),
     ("/upload_photo", PhotoUploadHandler),
     ("/photo", PhotoHandler),
+    ("/potentialroomies", PotentialRoomies),
 ], debug=True)
