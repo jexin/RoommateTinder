@@ -111,7 +111,7 @@ class PotentialRoomies(webapp2.RequestHandler):
         people = people.remove(Person.email == current_user.email())
         #3
         templateVars = {
-            "current_user" : current_user
+            "current_user" : current_user,
             "people" : people,
         }
         template = env.get_template("templates/potentialroomies")
