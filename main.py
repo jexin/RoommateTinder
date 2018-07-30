@@ -83,7 +83,7 @@ class CreateHandler(webapp2.RequestHandler):
         person.put()
         # 3. Render the response
         time.sleep(2)#gives it time to render
-        self.redirect("/")
+        self.redirect("/potentialroomies")
 
 class PhotoUploadHandler(webapp2.RequestHandler):
     def post(self):
