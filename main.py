@@ -9,7 +9,7 @@ from google.appengine.api import users
 
 class Person(ndb.Model):
     name = ndb.StringProperty()
-    biography = ndb.StringProperty()
+    bio = ndb.StringProperty()
     email = ndb.StringProperty()
     photo = ndb.BlobProperty()
     school = ndb.StringProperty()
@@ -68,11 +68,16 @@ class CreateHandler(webapp2.RequestHandler):
     def post(self):
         # 1. Read the request
         name = self.request.get("name")
-        biography = self.request.get("biography")
+        gender = self.request.get("gender")
+        school = self.request.get("school")
+        year = self.request.get("year")
+        city = self.request.get("city")
+        state = self.request.get("state")
+        bio = self.request.get("bio")
         current_user = users.get_current_user() #step1
         email = current_user.email() #step2
         # 2. Read/write from the database
-        person = Person(name=name, biography=biography, email=email)
+        person = Person(name=name, bio=bio, email=email)
         person.put()
         # 3. Render the response
         time.sleep(2)#gives it time to render
