@@ -100,14 +100,17 @@ class PotentialRoomies(webapp2.RequestHandler):
         #1
         current_user = users.get_current_user()
         #2
-        people =
+        people = Person.query().fetch().filter(Person.gender == current_user.gender)
+        people = people.filter(Person.school == current_user.school)
+        people = people.filter(Person.year == current_user.year)
+        people = people.remove(Person.email == current_user.email())
         #3
         templateVars = {
             "current_user" : current_user
             "people" : people,
         }
         template = env.get_template("templates/potentialroomies")
-        self.response.write(template.render())
+        self.response.write(template.render(templateVars))
 
 app = webapp2.WSGIApplication([
     ("/", MainPage),
