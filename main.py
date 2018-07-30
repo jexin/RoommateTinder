@@ -10,9 +10,11 @@ from google.appengine.api import users
 class Person(ndb.Model):
     name = ndb.StringProperty()
     biography = ndb.StringProperty()
-    birthday = ndb.DateProperty()
     email = ndb.StringProperty()
     photo = ndb.BlobProperty()
+    school = ndb.StringProperty()
+    gender = ndb.StringProperty()
+    year = ndb.StringProperty()
 
 env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -96,9 +98,14 @@ class PhotoHandler(webapp2.RequestHandler):
 class PotentialRoomies(webapp2.RequestHandler):
     def get(self):
         #1
-
+        current_user = users.get_current_user()
         #2
+        people =
         #3
+        templateVars = {
+            "current_user" : current_user
+            "people" : people,
+        }
         template = env.get_template("templates/potentialroomies")
         self.response.write(template.render())
 
