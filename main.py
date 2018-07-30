@@ -18,6 +18,10 @@ class Person(ndb.Model):
     bio = ndb.StringProperty()
     photo = ndb.BlobProperty()
 
+class Like(ndb.Model):
+    liker_key = ndb.KeyProperty()
+    liked_key = ndb.KeyProperty()
+
 env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
@@ -37,6 +41,7 @@ class MainPage(webapp2.RequestHandler):
         # 3. Render the response
         logout_url = users.create_logout_url("/")
         login_url = users.create_login_url("/potentialroomies")
+        #greeting = '<a href="{}">Sign in</a>'.format(login_url)
 
         templateVars = {
             "people" : people,
@@ -104,12 +109,23 @@ class PhotoHandler(webapp2.RequestHandler):
 
 class PotentialRoomies(webapp2.RequestHandler):
     def get(self):
+        # videos = Video.query().fetch()
+        # comments_dict = {}
+        # for video in videos:
+        #     comments = Comment.query().filter(Comment.video_key == video.key).fetch()
+        #     if not comments:
+        #         comments = []
+        #     comments_dict[video.key] = comments
+        # templateVars = {
+        #     "videos" : video,
+        #     "comments" : comments_dict,
+        # }
         #1
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
         #2
-        people = Person.query().filter(Person.gender == current_person.gender, Person.college == current_person.college, Person.year == current_person.year)
-        people = people.fetch()
+        people = Person.query().filter(Person.gender == current_person.gender, Person.college == current_person.college, Person.year == current_person.year).fetch()
+        #people = people.fetch()
         #people = people.remove(Person.email == current_user.email())
         #3
         templateVars = {
