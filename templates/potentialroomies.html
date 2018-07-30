@@ -10,7 +10,9 @@
 <button type="button">Like</button>
 
 {% for person in people %}
+  <div id = "roomieslist">
   <ul>
     <li><a href="/profile?key={{person.key.urlsafe()}}">{{person.name}}</a></li>
   </ul>
+</div>
 {% endfor %}
