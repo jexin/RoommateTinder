@@ -3,9 +3,15 @@
 <title>ROFL</title>
 <link rel="stylesheet" href="/stylesheets/home.css">
 
-<ul>
+<ul id="navbar">
   <li><a href="/">Home</a></li>
   <li><a href="">About</a></li>
+  <li style="float:right">{% if current_user %}
+    <a href="{{logout_url}}">Log out</a>
+    {% else %}
+      <a href="{{login_url}}">Log in</a>
+    {% endif %}
+  </li>
 </ul>
 
 <h1>Welcome to ROFL!</h1>
@@ -14,9 +20,6 @@
 <div>
   {% if current_user %}
     Welcome, {{current_user.email()}}
-    <a href="{{logout_url}}">Log out</a>
-  {% else %}
-    <a href="{{login_url}}">Log in</a>
   {% endif %}
 </div>
 
