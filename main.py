@@ -66,7 +66,7 @@ class CreateHandler(webapp2.RequestHandler):
     def post(self):
         # 1. Read the request
         name = self.request.get("name")
-        biography = self.request.get("bio")
+        biography = self.request.get("biography")
         current_user = users.get_current_user() #step1
         email = current_user.email() #step2
         # 2. Read/write from the database
