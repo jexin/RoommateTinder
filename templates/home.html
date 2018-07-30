@@ -7,8 +7,9 @@
 <ul id="navbar">
   <li><a href="/">Home</a></li>
   <li><a href="">About</a></li>
-  <li style="float:right">{% if current_user %}
-    <a href="{{logout_url}}">Log out</a>
+  <li style="float:right">
+    {% if current_user %}
+      <a href="{{logout_url}}">Log out</a>
     {% else %}
       <a href="{{login_url}}">Log in</a>
     {% endif %}
