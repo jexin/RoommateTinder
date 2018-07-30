@@ -107,7 +107,6 @@ class PotentialRoomies(webapp2.RequestHandler):
         #1
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
-
         #2
         people = Person.query().filter(Person.gender == current_person.gender, Person.college == current_person.college, Person.year == current_person.year)
         people = people.fetch()
