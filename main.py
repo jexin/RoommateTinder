@@ -106,16 +106,18 @@ class PotentialRoomies(webapp2.RequestHandler):
     def get(self):
         #1
         current_user = users.get_current_user()
+        current_person = Person.query().filter(Person.email == current_user.email()).get()
+
         #2
-        people = Person.query().filter(Person.gender == current_user.gender, Person.college == current_user.college, Person.year == current_user.year)
+        people = Person.query().filter(Person.gender == current_person.gender, Person.college == current_person.college, Person.year == current_person.year)
         people = people.fetch()
-        people = people.remove(Person.email == current_user.email())
+        #people = people.remove(Person.email == current_user.email())
         #3
         templateVars = {
             "current_user" : current_user,
             "people" : people,
         }
-        template = env.get_template("templates/potentialroomies")
+        template = env.get_template("templates/potentialroomies.html")
         self.response.write(template.render(templateVars))
 
 app = webapp2.WSGIApplication([
