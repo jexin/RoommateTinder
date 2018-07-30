@@ -23,13 +23,9 @@
     <button>Like</button>
 </form>
 
-<<<<<<< HEAD
 
-
-{% for person in people %}
-=======
 {% for person in people %} <!--this currently isn't showing up bc sign up page isnt allowing people to be added to the database-->
->>>>>>> 63f3c6cc49a3001997216413e40a48f7b889b193
+
   <div id = "roomieslist">
   <ul>
     <li><a href="/profile?key={{person.key.urlsafe()}}">{{person.name}}</a></li>
