@@ -9,12 +9,14 @@ from google.appengine.api import users
 
 class Person(ndb.Model):
     name = ndb.StringProperty()
-    bio = ndb.StringProperty()
     email = ndb.StringProperty()
-    photo = ndb.BlobProperty()
-    school = ndb.StringProperty()
     gender = ndb.StringProperty()
+    college = ndb.StringProperty()
     year = ndb.StringProperty()
+    city = ndb.StringProperty()
+    state = ndb.StringProperty()
+    bio = ndb.StringProperty()
+    photo = ndb.BlobProperty()
 
 env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -69,7 +71,7 @@ class CreateHandler(webapp2.RequestHandler):
         # 1. Read the request
         name = self.request.get("name")
         gender = self.request.get("gender")
-        school = self.request.get("school")
+        college = self.request.get("college")
         year = self.request.get("year")
         city = self.request.get("city")
         state = self.request.get("state")
@@ -77,7 +79,7 @@ class CreateHandler(webapp2.RequestHandler):
         current_user = users.get_current_user() #step1
         email = current_user.email() #step2
         # 2. Read/write from the database
-        person = Person(name=name, bio=bio, email=email)
+        person = Person(name=name, gender=gender, college=college, year=year, city=city, state=state, bio=bio, email=email)
         person.put()
         # 3. Render the response
         time.sleep(2)#gives it time to render
@@ -106,7 +108,7 @@ class PotentialRoomies(webapp2.RequestHandler):
         current_user = users.get_current_user()
         #2
         people = Person.query().fetch().filter(Person.gender == current_user.gender)
-        people = people.filter(Person.school == current_user.school)
+        people = people.filter(Person.college == current_user.college)
         people = people.filter(Person.year == current_user.year)
         people = people.remove(Person.email == current_user.email())
         #3
