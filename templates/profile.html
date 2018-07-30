@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="/stylesheets/home.css">
+<link rel="stylesheet" href="/stylesheets/profile.css">
 
 <ul id="navbar">
   <li><a href="/">Home</a></li>
   <li><a href="">About</a></li>
   <li><a href="">My Profile</li>
-  <li style="float:right">
+  <li>
     {% if current_user %}
       <a href="{{logout_url}}">Log out</a>
     {% else %}
