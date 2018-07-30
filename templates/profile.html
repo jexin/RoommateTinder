@@ -1,6 +1,21 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="/stylesheets/home.css">
+
+<ul id="navbar">
+  <li><a href="/">Home</a></li>
+  <li><a href="">About</a></li>
+  <li><a href="">My Profile</li>
+  <li style="float:right">
+    {% if current_user %}
+      <a href="{{logout_url}}">Log out</a>
+    {% else %}
+      <a href="{{login_url}}">Log in</a>
+    {% endif %}
+  </li>
+</ul>
 <title>Profile Page for {{person.name}}</title>
 
+<img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}">
 <h1>{{person.name}}</h1>
 <div>Email: {{person.email}}</div>
 <div>About me: {{person.bio}}</div>
@@ -11,4 +26,7 @@
       Upload a profile photo: <input name="image" type="file"><br>
       <button>Upload</button>
   </form>
+  <button name="Edit">Edit Profile</button>
+{% else %}
+  <button name="like">Like</button>
 {% endif %}
