@@ -18,6 +18,10 @@ class Person(ndb.Model):
     bio = ndb.StringProperty()
     photo = ndb.BlobProperty()
 
+class Like(ndb.Model):
+    liker_key = ndb.KeyProperty()
+    liked_key = ndb.KeyProperty()
+
 env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
@@ -120,8 +124,8 @@ class PotentialRoomies(webapp2.RequestHandler):
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
         #2
-        people = Person.query().filter(Person.gender == current_person.gender, Person.college == current_person.college, Person.year == current_person.year)
-        people = people.fetch()
+        people = Person.query().filter(Person.gender == current_person.gender, Person.college == current_person.college, Person.year == current_person.year).fetch()
+        #people = people.fetch()
         #people = people.remove(Person.email == current_user.email())
         #3
         templateVars = {
