@@ -12,13 +12,3 @@
     <li><a href="/profile?key={{person.key.urlsafe()}}">{{person.name}}</a></li>
   </ul>
 {% endfor %}
-
-<ul>
-  {% for person in people %}
-    {% if current_user and current_user.email() == person.email %}
-      <li><strong><a href="/profile?key={{person.key.urlsafe()}}">{{person.name}}</a></strong></li>
-    {% else %}
-      <li><a href="/profile?key={{person.key.urlsafe()}}">{{person.name}}</a></li>
-    {% endif %}
-  {% endfor %}
-</ul>
