@@ -40,13 +40,13 @@ class MainPage(webapp2.RequestHandler):
             current_person = None
         # 3. Render the response
         logout_url = users.create_logout_url("/")
-        print(repr(current_person))
-        print(repr(people))
+        #print(repr(current_person))
+        #print(repr(people))
         if current_person:
-            print("took true branch")
+            #print("took true branch")
             login_url = users.create_login_url("/")
         else:
-            print("took false branch")
+            #print("took false branch")
             login_url = users.create_login_url("/")
         print(login_url)
         templateVars = {

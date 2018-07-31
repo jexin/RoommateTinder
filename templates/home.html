@@ -14,15 +14,6 @@
 {% endif %}
 </div>
 
-  <!-- <br>
-  <label>Email:</label>
-  <input name="email"><br>
-  <br>
-  <label>Password</label>
-  <input type="password" name="password"><br>
-  <button type="button">Log In</button> -->
-
-
 <div id="home">
 {% if current_user and not current_person %}
   <br><br>
@@ -35,7 +26,11 @@
     <input name="email"><br>
     <br>
     <label>Gender:</label>
-    <input name="gender"><br>
+    <select name="gender">
+      <option value="female">Female</option>
+      <option value="male">Male</option>
+      <option value="other">Other</option>
+    </select>
     <br>
     <label>College:</label>
     <input name="college"><br>
@@ -118,18 +113,3 @@
   </form>
 {% endif %}
 </div>
-<!--buttons-->
-
-
-<!--
-<div>
-  {% if current_user %}
-    Welcome, {{current_user.email()}}
-  {% endif %}
-</div>
--->
-
- <!--{% if current_user and not current_person %}current_user refers to logged in(from api), current_person refers to profile(person model)-->
-
-
-<!--{% endif %}-->
