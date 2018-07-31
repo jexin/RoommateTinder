@@ -64,7 +64,7 @@ class ProfilePage(webapp2.RequestHandler):
         # 1. Read the request
         urlsafe_key = self.request.get("key") #get from url
         current_user = users.get_current_user()
-        current_person = Person.query().filter(Person.email == current_user.email().get())
+        current_person = Person.query().filter(Person.email == current_user.email()).get()
         # 2. Read/write from the database
         key = ndb.Key(urlsafe=urlsafe_key) # rom url to key
         person = key.get() #from key to person object
