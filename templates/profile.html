@@ -25,6 +25,7 @@
       <button style="float:right" name="Edit">Edit Profile</button></h1>
     {% else %}
       <form action="/profile" method="post">
+        <input type="hidden" name="viewed_profile_key" value="{{person.key.urlsafe()}}">
         <button style="float:right" name="like">Like</button></h1>
       </form>
     {% endif %}
