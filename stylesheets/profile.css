@@ -40,10 +40,13 @@
   flex-direction: row;
 }
 #left {
-  padding-top:35px;
+  padding-top:15px;
    flex:1 4 200px;
 }
 #right {
   padding-left: 10px;
   flex:4 1 auto;
+}
+#right h1 {
+  margin-top: 10px;
 }
