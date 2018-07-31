@@ -22,3 +22,6 @@ Extension:
 - Javascript/CSS
 - Team name
 - App name
+
+MY PROFILE BUTTON
+NOT DISPLAY YOURSELF IN FEED

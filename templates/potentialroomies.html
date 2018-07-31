@@ -21,17 +21,13 @@
 <form action="/">
     <button>Log Out</button>
 </form> -->
-<form action="/potentialroomies">
+<form action="/mymatches">
     <button>My Matches</button>
 </form>
 <form action="/potentialroomies">
     <button>Potential Matches</button>
 </form>
 
-<div id="content">
-  <div id="left">
-
-  </div>
   <div id="right">
     <ul id="roomiesList">
     {% for person in people %} <!--this currently isn't showing up bc sign up page isnt allowing people to be added to the database-->
@@ -45,4 +41,3 @@
     {% endfor %}
     </ul>
   </div>
-</div>

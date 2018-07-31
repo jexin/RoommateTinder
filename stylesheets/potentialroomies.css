@@ -35,18 +35,6 @@
     background-color: #111;
 }
 
-#content {
-  display:flex;
-  flex-direction: row;
-}
-#left {
-   flex:1 6 200px;
-   border: 1px solid grey;
-}
-#right {
-  flex:6 1 auto;
-}
-
 #roomiesList {
   display:flex;
   flex-direction: row;
@@ -57,7 +45,9 @@
 
 #roomiesItem {
   list-style-type: none;
-  margin:0 20px 20px 20px;
+  margin:0 20px 20px 0;
+  width:250px;
+  height:300px;
   padding: 10px;
   border: 1px solid lightgrey;
   font-family: serif;
