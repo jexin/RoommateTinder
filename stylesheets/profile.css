@@ -50,3 +50,21 @@
 #right h1 {
   margin-top: 10px;
 }
+
+#right button {
+    background-color: #ccc;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    margin-right: 10px;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+
+}
+
+#right button:hover {
+    background-color: #111;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
