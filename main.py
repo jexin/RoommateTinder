@@ -40,8 +40,10 @@ class MainPage(webapp2.RequestHandler):
             current_person = None
         # 3. Render the response
         logout_url = users.create_logout_url("/")
-        login_url = users.create_login_url("/potentialroomies")
-        #greeting = '<a href="{}">Sign in</a>'.format(login_url)
+        if current_person in people:
+            login_url = users.create_login_url("/potentialroomies")
+        else:
+            login_url = users.create_login_url("/")
 
         templateVars = {
             "people" : people,
