@@ -26,10 +26,17 @@
         <button style="float:right" name="Edit">Edit Profile</button>
       </form></h1>
     {% else %}
+<<<<<<< HEAD
       <form action="/" method="post">
         <button style="float:right" name="like">Like</button>
       </form></h1>
+=======
+      <form action="/profile" method="post">
+        <button style="float:right" name="like">Like</button></h1>
+      </form>
+>>>>>>> 54823d30274b3c23a3102334f5333dbecdfceff4
     {% endif %}
+    <div>Gender: {{person.gender}}</div>
     <div>Email: {{person.email}}</div>
     <div>Gender: {{person.gender}}</div>
     <div>Year: {{person.year}}</div>

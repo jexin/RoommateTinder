@@ -33,7 +33,7 @@ class MainPage(webapp2.RequestHandler):
         current_user = users.get_current_user()
         # 2. Read/write from the database
         people = Person.query().fetch()
-        if current_user: #if person is logged in
+        if current_user: #if person exists
             current_email = current_user.email()
             current_person = Person.query().filter(Person.email == current_email).get()# the person model who matches the email that logged in
         else:
@@ -80,15 +80,19 @@ class ProfilePage(webapp2.RequestHandler):
         self.response.write(template.render(templateVars))
 
     def post(self):
+        #1
         urlsafe_key = self.request.get("key") #get from url
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email().get())
 
-        key = ndb.Key(urlsafe=urlsafe_key) # rom url to key
+        key = ndb.Key(urlsafe=urlsafe_key) # from url to key
         current_profile = key.get()
-
+        #2
         like = Like(liker_key = current_person.key(), liked_key = current_profile.key())
         like.put()
+        #3
+        time.sleep(2)
+        self.redirect("/profile")
 
 class CreateHandler(webapp2.RequestHandler):
     def post(self):
@@ -102,6 +106,7 @@ class CreateHandler(webapp2.RequestHandler):
         bio = self.request.get("bio")
         current_user = users.get_current_user() #step1
         email = current_user.email() #step2
+
         # 2. Read/write from the database
         person = Person(name=name, gender=gender, college=college, year=year, city=city, state=state, bio=bio, email=email)
         person.put()
@@ -114,8 +119,9 @@ class PhotoUploadHandler(webapp2.RequestHandler):
         image = self.request.get("image")
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
-        current_person.photo
+        current_person.photo = image
         current_person.put()
+        time.sleep(2)
         self.redirect("/profile?key=" + current_person.key.urlsafe()) #current person is the person from database, cannot get key from current user
 
 class PhotoHandler(webapp2.RequestHandler):
