@@ -42,10 +42,10 @@
     <br>
     <label>Year</label>
     <select name="year">
-      <option value="freshman" selected>Freshman</option>
-      <option value="sophomore">Sophomore</option>
-      <option value="junior">Junior</option>
-      <option value="senior">Senior</option>
+      <option value="Freshman" selected>Freshman</option>
+      <option value="Sophomore">Sophomore</option>
+      <option value="Junior">Junior</option>
+      <option value="Senior">Senior</option>
     </select>
     <br><br>
     <label>City</label>
@@ -111,6 +111,11 @@
     <button>Create Profile</button>
   </form>
   <br><br>
+{% elif current_user and current_person %}
+  <br>
+  <form action="/potentialroomies">
+      <button>Go to Main</button>
+  </form>
 {% endif %}
 </div>
 <!--buttons-->
