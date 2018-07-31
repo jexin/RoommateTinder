@@ -85,20 +85,17 @@ class ProfilePage(webapp2.RequestHandler):
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
 
-
         #key = ndb.Key(urlsafe=urlsafe_key) # rom url to key
-        viewed_profile_key = self.request.get("viewed_profile_key")
+        viewed_profile_key = self.request.get("viewed_profile_key") #this is the urlsafe key gettingreturned
         key = ndb.Key(urlsafe=viewed_profile_key)
         viewed_profile = key.get()
 
-        key = ndb.Key(urlsafe=urlsafe_key) # from url to key
-        current_profile = key.get()
         #2
-        like = Like(liker_key = current_person.key(), liked_key = viewed_profile.key())
+        like = Like(liker_key = current_person.key, liked_key = viewed_profile.key)
         like.put()
         #3
         time.sleep(2)
-        self.redirect("/profile?key=" + current_person.key.urlsafe())
+        self.redirect("/profile?key=" + viewed_profile.key.urlsafe())
 
 class CreateHandler(webapp2.RequestHandler):
     def post(self):
