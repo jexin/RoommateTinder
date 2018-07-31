@@ -26,16 +26,10 @@
         <button style="float:right" name="Edit">Edit Profile</button>
       </form></h1>
     {% else %}
-<<<<<<< HEAD
       <form action="/profile" method="post">
         <input type="hidden" name="viewed_profile_key" value="{{person.key.urlsafe()}}">
         <button style="float:right" name="like">Like</button></h1>
       </form>
-=======
-      <form action="/" method="post">
-        <button style="float:right" name="like">Like</button>
-      </form></h1>
->>>>>>> 7c5e1497598410b1a3e50850bc1384810a81d547
     {% endif %}
     <div>Gender: {{person.gender}}</div>
     <div>Email: {{person.email}}</div>
