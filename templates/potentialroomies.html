@@ -31,14 +31,21 @@
     <button>Potential Matches</button>
 </form>
 
-{% for person in people %} <!--this currently isn't showing up bc sign up page isnt allowing people to be added to the database-->
-  <div id = "roomieslist">
-  <ul>
-    <li>{{person.name}}</li>
-    <a href="/profile?key={{person.key.urlsafe()}}">View Profile</a>
-    <form action="/potentialroomies">
-        <button>Like</button>
-    </form>
-  </ul>
+<div id="content">
+  <div id="left">
+    
+  </div>
+  <div id="right">
+    {% for person in people %} <!--this currently isn't showing up bc sign up page isnt allowing people to be added to the database-->
+      <div id = "roomiesItem">
+        <ul>
+          <li>{{person.name}}</li>
+          <a href="/profile?key={{person.key.urlsafe()}}">View Profile</a>
+          <form action="/potentialroomies">
+              <button>Like</button>
+          </form>
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
 </div>
-{% endfor %}
