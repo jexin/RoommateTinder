@@ -6,7 +6,7 @@
     <li id="logo">ROFL</li>
     <li><a href="/potentialroomies">Home</a></li>
     <li style="float:right">
-        <a href="/">Log out</a>
+        <a href={{logout_url}}>Log Out</a>
     </li>
     <li style="float:right"><a href="/profile?key={{current_person.key.urlsafe()}}">My Profile</a></li>
     <li style="float:right"><a href="/mymatches">My Matches</a></li>
@@ -14,9 +14,9 @@
 </div>
 
 <div>People I liked</div>
-<!-- <div id="right">
+<div id="right">
   <ul id="roomiesList">
-    {% for person in people %}
+    {% for person in current_person_likes %}
       {% if current_person.key !=  person.key %}
         <div id = "roomiesItem">
           <div><li>{{person.name}}</li></div>
@@ -28,12 +28,12 @@
       {% endif %}
     {% endfor %}
   </ul>
-</div> -->
+</div>
 
 <div>People who liked me</div>
-<!-- <div id="right">
+<div id="right">
   <ul id="roomiesList">
-    {% for person in people %}
+    {% for person in likes_current_person %}
       {% if current_person.key !=  person.key %}
         <div id = "roomiesItem">
           <div><li>{{person.name}}</li></div>
@@ -45,13 +45,13 @@
       {% endif %}
     {% endfor %}
   </ul>
-</div> -->
+</div>
 
 <div>Mutual likes</div>
-<!-- <div id="right">
+<div id="right">
   <ul id="roomiesList">
-    {% for person in people %}
-      {% if current_person.key !=  person.key %}
+    {% for person in matches %}
+      {% if current_person.key != person.key %}
         <div id = "roomiesItem">
           <div><li>{{person.name}}</li></div>
           <div><img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
@@ -62,4 +62,4 @@
       {% endif %}
     {% endfor %}
   </ul>
-</div> -->
+</div>
