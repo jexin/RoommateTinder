@@ -1,61 +1,67 @@
 <!DOCTYPE html>
 <title>ROFL</title>
-
 <link rel="stylesheet" href="/stylesheets/home.css">
 
+<h1>Welcome to ROFL!</h1>
+<h2>Roommates On Fantastic Levels</h2>
+
 <ul id="navbar">
-  <br>
+  <div>
+  {% if current_user %}
+    Welcome, {{current_user.email()}}
+    <a href="{{logout_url}}">Log out</a>
+  {% else %}
+    <a href="{{login_url}}">Log in</a>
+  {% endif %}
+  </div>
+  <!-- <br>
   <label>Email:</label>
   <input name="email"><br>
   <br>
   <label>Password</label>
   <input type="password" name="password"><br>
-  <button type="button">Log In</button>
-
+  <button type="button">Log In</button> -->
 </ul>
 
 <div class="home">
 
-<h1>Welcome to ROFL!</h1>
-<h2>Roommates On Fantastic Levels</h2>
-
-<br><br>
-<form action="/create" method="post">
-  <a href="{{login_url}}">Log in</a>
-  <br>
-  <br>
-  <label>Your name:</label>
-  <input name="name"><br>
-  <br>
-  <label>Email:</label>
-  <input name="email"><br>
-  <br>
-  <label>Gender:</label>
-  <input name="gender"><br>
-  <br>
-  <label>College:</label>
-  <input name="college"><br>
-  <br>
-  <label>Year</label>
-  <select name="year">
-    <option value="freshman" selected>Freshman</option>
-    <option value="sophomore">Sophomore</option>
-    <option value="junior">Junior</option>
-    <option value="senior">Senior</option>
-  </select>
+{% if current_user and not current_person %}
   <br><br>
+  <form action="/create" method="post">
+    <br>
+    <label>Your name:</label>
+    <input name="name"><br>
+    <br>
+    <label>Email:</label>
+    <input name="email"><br>
+    <br>
+    <label>Gender:</label>
+    <input name="gender"><br>
+    <br>
+    <label>College:</label>
+    <input name="college"><br>
+    <br>
+    <label>Year</label>
+    <select name="year">
+      <option value="freshman" selected>Freshman</option>
+      <option value="sophomore">Sophomore</option>
+      <option value="junior">Junior</option>
+      <option value="senior">Senior</option>
+    </select>
+    <br><br>
 
-  <label>City</label>
-  <input name="city"><br>
-  <br>
-  <label>State</label>
-  <input name="state"><br>
-  <br>
-  <label>Bio</label>
-  <input name="bio"><br><br>
-  <button>Create Profile</button>
-</form>
-<br><br>
+    <label>City</label>
+    <input name="city"><br>
+    <br>
+    <label>State</label>
+    <input name="state"><br>
+    <br>
+    <label>Bio</label>
+    <input name="bio"><br><br>
+    <button>Create Profile</button>
+  </form>
+  <br><br>
+{% endif %}
 
 </div>
 <!--buttons-->
