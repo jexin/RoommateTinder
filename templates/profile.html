@@ -1,56 +1,51 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="/stylesheets/profile.css">
 
-<ul id="navbar">
-  <li><a href="/potentialroomies">Home</a></li>
-  <li><a href="">About Us</a></li>
-  <li style="float:right">
-      <a href="/">Log out</a>
-  </li>
-  <li  style="float:right"><a href="">My Profile</a></li>
-</ul>
+<div id="navbar">
+  <ul>
+    <li id="logo">ROFL</li>
+    <li><a href="/potentialroomies">Home</a></li>
+    <li style="float:right">
+        <a href="/">Log out</a>
+    </li>
+    <li style="float:right"><a href="">My Profile</a></li>
+  </ul>
+</div>
 
 <title>Profile Page for {{person.name}}</title>
 
-<img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}">
-<h1>{{person.name}}</h1>
-<div>Email: {{person.email}}</div>
-<div>Year: {{person.year}}</div>
-<div>College: {{person.college}}</div>
-<div>City: {{person.city}}</div>
-<div>State: {{person.state}}</div>
-<div>About me: {{person.bio}}</div>
-<img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}">
+<div id="content">
+  <div id="left">
+    <img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}">
+  </div>
+  <div id="right">
+    <h1>{{person.name}}
+    {% if is_my_profile %}
+      <button style="float:right" name="Edit">Edit Profile</button></h1>
+    {% else %}
+      <button style="float:right" name="like">Like</button></h1>
+    {% endif %}
+    <div>Email: {{person.email}}</div>
+    <div>Year: {{person.year}}</div>
+    <div>College: {{person.college}}</div>
+    <div>City: {{person.city}}</div>
+    <div>State: {{person.state}}</div>
+    <div>About me: {{person.bio}}</div>
+  </div>
+</div>
 
 {% if is_my_profile %}
   <form action="/upload_photo" method="post" enctype="multipart/form-data">
       Upload a profile photo: <input name="image" type="file"><br>
       <button>Upload</button>
   </form>
-  <button name="Edit">Edit Profile</button>
-{% else %}
-  <button name="like">Like</button>
 {% endif %}
 
 <!--buttons-->
-<form action="/potentialroomies">
-    <button>Home</button>
-</form>
-<form action="/profile">
-    <button>My Profile</button>
-</form>
-<form action="/">
-    <button>Log Out</button>
-</form>
+<br><br><br>
 <form action="/potentialroomies">
     <button>My Matches</button>
 </form>
 <form action="/potentialroomies">
     <button>Potential Matches</button>
-</form>
-<form action="/profile">
-    <button>View Profile</button>
-</form>
-<form action="/potentialroomies">
-    <button>Like</button>
 </form>

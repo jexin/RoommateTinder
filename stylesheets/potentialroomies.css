@@ -10,6 +10,14 @@
     float: left;
 }
 
+#logo {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  background-color: #555;
+}
+
 #navbar li a {
     display: block;
     color: white;
@@ -23,7 +31,27 @@
     background-color: #111;
 }
 
-#roomieslist {
+#content {
+  display:flex;
+  flex-direction: row;
+}
+#left {
+   flex:1 6 200px;
+   border: 1px solid grey;
+}
+#right {
+  flex:6 1 auto;
+}
+
+#roomiesItem ul{
+  list-style-type: none;
+}
+
+#roomiesItem {
+  height:400px;
+  width:300px;
+  padding-top:10px;
+  margin: 0 15px 15px 15px;
+  border: 1px solid lightgrey;
   font-family: serif;
-  padding: 50px;
 }
