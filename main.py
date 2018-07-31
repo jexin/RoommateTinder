@@ -72,6 +72,7 @@ class ProfilePage(webapp2.RequestHandler):
         is_my_profile = current_user and current_user.email() == person.email
         # 3. Render the response
         templateVars = {
+            "current_person" : current_person,
             "person" : person,
             "is_my_profile" : is_my_profile,
         }
