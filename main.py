@@ -126,6 +126,19 @@ class PotentialRoomies(webapp2.RequestHandler):
         template = env.get_template("templates/potentialroomies.html")
         self.response.write(template.render(templateVars))
 
+class MyMatches(webapp2.RequestHandler):
+    def get(self):
+        #1
+        current_user = users.get_current_user()
+        current_person = Person.query().filter(Person.email == current_user.email()).get()
+        #2
+        #3
+        templateVars = {
+
+        }
+        template = env.get_template("templates/mymatches.html")
+        self.response.write(template.render(templateVars))
+
 app = webapp2.WSGIApplication([
     ("/", MainPage),
     ("/profile", ProfilePage),
@@ -133,4 +146,5 @@ app = webapp2.WSGIApplication([
     ("/upload_photo", PhotoUploadHandler),
     ("/photo", PhotoHandler),
     ("/potentialroomies", PotentialRoomies),
+    ("/mymatches", MyMatches)
 ], debug=True)
