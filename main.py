@@ -79,15 +79,19 @@ class ProfilePage(webapp2.RequestHandler):
         self.response.write(template.render(templateVars))
 
     def post(self):
+        #1
         urlsafe_key = self.request.get("key") #get from url
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email().get())
 
         key = ndb.Key(urlsafe=urlsafe_key) # rom url to key
         current_profile = key.get()
-
+        #2
         like = Like(liker_key = current_person.key(), liked_key = current_profile.key())
         like.put()
+        #3
+        time.sleep(2)
+        self.redirect("/profile")
 
 class CreateHandler(webapp2.RequestHandler):
     def post(self):
