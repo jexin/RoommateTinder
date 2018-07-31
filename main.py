@@ -92,7 +92,7 @@ class ProfilePage(webapp2.RequestHandler):
         like.put()
         #3
         time.sleep(2)
-        self.redirect("/profile")
+        self.redirect("/profile?key=" + current_person.key.urlsafe())
 
 class CreateHandler(webapp2.RequestHandler):
     def post(self):
