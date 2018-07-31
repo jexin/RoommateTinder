@@ -35,7 +35,9 @@ class MainPage(webapp2.RequestHandler):
         people = Person.query().fetch()
         if current_user: #if person exists
             current_email = current_user.email()
-            current_person = Person.query().filter(Person.email == current_email).get()# the person model who matches the email that logged in
+            current_person = Person.query().filter(Person.email == current_email).get()
+            if current_person:
+                self.redirect("/potentialroomies")
         else:
             current_person = None
         # 3. Render the response
@@ -70,11 +72,13 @@ class ProfilePage(webapp2.RequestHandler):
         viewed_person = key.get() #from key to person object
 
         is_my_profile = current_user and current_user.email() == viewed_person.email
+        logout_url = users.create_logout_url("/")
         # 3. Render the response
         templateVars = {
             "current_person" : current_person,
             "person" : viewed_person,
             "is_my_profile" : is_my_profile,
+            "logout_url" : logout_url,
         }
         template = env.get_template("templates/profile.html")
         self.response.write(template.render(templateVars))
@@ -89,7 +93,6 @@ class ProfilePage(webapp2.RequestHandler):
         viewed_profile_key = self.request.get("viewed_profile_key") #this is the urlsafe key gettingreturned
         key = ndb.Key(urlsafe=viewed_profile_key)
         viewed_profile = key.get()
-
         #2
         like = Like(liker_key = current_person.key, liked_key = viewed_profile.key)
         like.put()
@@ -145,9 +148,11 @@ class PotentialRoomies(webapp2.RequestHandler):
         people = Person.query().filter(Person.gender == current_person.gender).fetch()
         #people = people.remove(Person.email == current_user.email())
         #3
+        logout_url = users.create_logout_url("/")
         templateVars = {
             "current_person" : current_person,
             "people" : people,
+            "logout_url" : logout_url,
         }
         template = env.get_template("templates/potentialroomies.html")
         self.response.write(template.render(templateVars))
@@ -158,10 +163,36 @@ class MyMatches(webapp2.RequestHandler):
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
         #2
+        #filters Likes
+        current_person_likes = Like.query().filter(Like.liker_key == current_person.key).fetch()
+        likes_current_person = Like.query().filter(Like.liked_key == current_person.key).fetch()
+        mutual_likes = current_person_likes and likes_current_person
 
+        matches = []
+        for like in mutual_likes:
+            #logging.info(like.liker_key)
+            liker = Person.query().filter(Person.key == like.liker_key).get()
+            if liker:
+                matches.append(liker)
+            #logging.info(liker)
+            liked = Person.query().filter(Person.key == like.liked_key).get()
+            if liked:
+                matches.append(liked)
+        #logging.info(matches)
+
+        #turns Likes into People
+        # people_person_likes = Person.query().filter(Person.key == current_person_likes.key).fetch()
+        # people_likes_person = Person.query().filter(Person.key == likes_current_person.key).fetch()
         #3
+        logout_url = users.create_logout_url("/")
         templateVars = {
             "current_person" : current_person,
+            "current_person_likes" : current_person_likes,
+            "likes_current_person" : likes_current_person,
+            "matches" : matches,
+            "logout_url" : logout_url,
+            # "people_person_likes" : people_person_likes,
+            # "people_likes_person" : people_likes_person,
         }
         template = env.get_template("templates/mymatches.html")
         self.response.write(template.render(templateVars))

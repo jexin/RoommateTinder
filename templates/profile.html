@@ -6,7 +6,7 @@
     <li id="logo">ROFL</li>
     <li><a href="/potentialroomies">Home</a></li>
     <li style="float:right">
-        <a href="/">Log out</a>
+        <a href={{logout_url}}>Log out</a>
     </li>
     <li style="float:right"><a href="/profile?key={{current_person.key.urlsafe()}}">My Profile</a></li>
     <li style="float:right"><a href="/mymatches">My Matches</a></li>
@@ -31,7 +31,7 @@
         <button style="float:right" name="like">Like</button></h1>
       </form>
     {% endif %}
-    
+
     <div>Gender: {{person.gender}}</div>
     <div>Year: {{person.year}}</div>
     <div>College: {{person.college}}</div>
