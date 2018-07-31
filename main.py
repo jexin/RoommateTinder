@@ -62,18 +62,18 @@ class MainPage(webapp2.RequestHandler):
 class ProfilePage(webapp2.RequestHandler):
     def get(self):
         # 1. Read the request
-        urlsafe_key = self.request.get("key") #get from url
+        urlsafe_profile_key = self.request.get("key") #get from url
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
         # 2. Read/write from the database
-        key = ndb.Key(urlsafe=urlsafe_key) # rom url to key
-        person = key.get() #from key to person object
+        key = ndb.Key(urlsafe=urlsafe_profile_key) # rom url to key
+        viewed_person = key.get() #from key to person object
 
-        is_my_profile = current_user and current_user.email() == person.email
+        is_my_profile = current_user and current_user.email() == viewed_person.email
         # 3. Render the response
         templateVars = {
             "current_person" : current_person,
-            "person" : person,
+            "person" : viewed_person,
             "is_my_profile" : is_my_profile,
         }
         template = env.get_template("templates/profile.html")
@@ -81,14 +81,20 @@ class ProfilePage(webapp2.RequestHandler):
 
     def post(self):
         #1
-        urlsafe_key = self.request.get("key") #get from url
+        #urlsafe_key = self.request.get("") #main issue
         current_user = users.get_current_user()
-        current_person = Person.query().filter(Person.email == current_user.email().get())
+        current_person = Person.query().filter(Person.email == current_user.email()).get()
+
+
+        #key = ndb.Key(urlsafe=urlsafe_key) # rom url to key
+        viewed_profile_key = self.request.get("viewed_profile_key")
+        key = ndb.Key(urlsafe=viewed_profile_key)
+        viewed_profile = key.get()
 
         key = ndb.Key(urlsafe=urlsafe_key) # from url to key
         current_profile = key.get()
         #2
-        like = Like(liker_key = current_person.key(), liked_key = current_profile.key())
+        like = Like(liker_key = current_person.key(), liked_key = viewed_profile.key())
         like.put()
         #3
         time.sleep(2)
@@ -158,7 +164,7 @@ class MyMatches(webapp2.RequestHandler):
 
         #3
         templateVars = {
-
+            "current_person" : current_person,
         }
         template = env.get_template("templates/mymatches.html")
         self.response.write(template.render(templateVars))
