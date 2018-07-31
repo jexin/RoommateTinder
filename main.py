@@ -142,7 +142,9 @@ class PotentialRoomies(webapp2.RequestHandler):
         current_person = Person.query().filter(Person.email == current_user.email()).get()
         logging.info(current_person)
         #2
-        people = Person.query().filter(Person.gender == current_person.gender).fetch()
+        people = Person.query().filter(Person.gender == current_person.gender)
+        people = people.filter(Person.college == current_person.college)
+        people = people.filter(Person.year == current_person.year)
         #people = people.remove(Person.email == current_user.email())
         #3
         templateVars = {
