@@ -158,7 +158,7 @@ class MyMatches(webapp2.RequestHandler):
 
         #3
         templateVars = {
-
+            "current_person" : current_person,
         }
         template = env.get_template("templates/mymatches.html")
         self.response.write(template.render(templateVars))

@@ -51,4 +51,10 @@
   padding: 10px;
   border: 1px solid lightgrey;
   font-family: serif;
+  text-align: center;
+}
+
+#roomiesItem li {
+  margin-bottom: 6px;
+  font-size: 26px;
 }

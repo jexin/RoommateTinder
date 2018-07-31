@@ -38,11 +38,12 @@
 #content {
   display:flex;
   flex-direction: row;
-  padding:15px;
 }
 #left {
+  padding-top:35px;
    flex:1 4 200px;
 }
 #right {
+  padding-left: 10px;
   flex:4 1 auto;
 }
