@@ -89,11 +89,7 @@ class ProfilePage(webapp2.RequestHandler):
         viewed_profile_key = self.request.get("viewed_profile_key") #this is the urlsafe key gettingreturned
         key = ndb.Key(urlsafe=viewed_profile_key)
         viewed_profile = key.get()
-<<<<<<< HEAD
-        current_profile = key.get()
-=======
 
->>>>>>> 36d2519210d259af7a4597a3c69497ba27338b2e
         #2
         like = Like(liker_key = current_person.key, liked_key = viewed_profile.key)
         like.put()
@@ -120,6 +116,30 @@ class CreateHandler(webapp2.RequestHandler):
         # 3. Render the response
         time.sleep(2)#gives it time to render
         self.redirect("/potentialroomies")
+
+class EditHandler(webapp2.RequestHandler):
+    def post(self):
+        current_user = users.get_current_user()
+        current_person = Person.query().filter(Person.email == current_user.email()).get()
+        person = Person.query().filter(Person.email == current_user.email()).get()
+        name = self.request.get("name")
+        gender = self.request.get("gender")
+        college = self.request.get("college")
+        year = self.request.get("year")
+        city = self.request.get("city")
+        state = self.request.get("state")
+        bio = self.request.get("bio")
+
+        person.name = name
+        person.gender = gender
+        person.college = college
+        person.year = year
+        person.city = city
+        person.state = state
+        person.bio = bio
+        person.put()
+        time.sleep(2)
+        self.redirect("/profile?key=" + current_person.key.urlsafe())
 
 class PhotoUploadHandler(webapp2.RequestHandler):
     def post(self):
@@ -174,6 +194,7 @@ app = webapp2.WSGIApplication([
     ("/", MainPage),
     ("/profile", ProfilePage),
     ("/create", CreateHandler),
+    ("/edit", EditHandler),
     ("/upload_photo", PhotoUploadHandler),
     ("/photo", PhotoHandler),
     ("/potentialroomies", PotentialRoomies),
