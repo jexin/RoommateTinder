@@ -22,11 +22,13 @@
   <div id="right">
     <h1>{{person.name}}
     {% if is_my_profile %}
-      <button style="float:right" name="Edit">Edit Profile</button></h1>
+      <form action="/" method="post">
+        <button style="float:right" name="Edit">Edit Profile</button>
+      </form></h1>
     {% else %}
       <form action="/" method="post">
-        <button style="float:right" name="like">Like</button></h1>
-      </form>
+        <button style="float:right" name="like">Like</button>
+      </form></h1>
     {% endif %}
     <div>Email: {{person.email}}</div>
     <div>Gender: {{person.gender}}</div>
