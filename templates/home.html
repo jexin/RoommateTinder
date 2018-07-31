@@ -60,6 +60,11 @@
     <button>Create Profile</button>
   </form>
   <br><br>
+{% elif current_user and current_person %}
+  <br>
+  <form action="/potentialroomies">
+      <button>Go to Main</button>
+  </form>
 {% endif %}
 </div>
 <!--buttons-->
