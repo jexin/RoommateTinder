@@ -85,10 +85,14 @@ class ProfilePage(webapp2.RequestHandler):
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
 
+
         #key = ndb.Key(urlsafe=urlsafe_key) # rom url to key
         viewed_profile_key = self.request.get("viewed_profile_key")
         key = ndb.Key(urlsafe=viewed_profile_key)
         viewed_profile = key.get()
+
+        key = ndb.Key(urlsafe=urlsafe_key) # from url to key
+        current_profile = key.get()
         #2
         like = Like(liker_key = current_person.key(), liked_key = viewed_profile.key())
         like.put()
@@ -160,7 +164,7 @@ class MyMatches(webapp2.RequestHandler):
 
         #3
         templateVars = {
-
+            "current_person" : current_person,
         }
         template = env.get_template("templates/mymatches.html")
         self.response.write(template.render(templateVars))
