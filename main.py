@@ -79,7 +79,7 @@ class ProfilePage(webapp2.RequestHandler):
         self.response.write(template.render(templateVars))
 
     def post(self):
-        like = Like(liker_key = current_person.key(), liked_key = )
+        # like = Like(liker_key = current_person.key(), liked_key = )
         like.put()
 class CreateHandler(webapp2.RequestHandler):
     def post(self):

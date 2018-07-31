@@ -23,5 +23,11 @@ Extension:
 - Team name
 - App name
 
-MY PROFILE BUTTON
-NOT DISPLAY YOURSELF IN FEED
+when me likes other,
+me db --- other key gets added to people i liked
+
+when other likes me,
+other db --- me key gets added to people who liked me
+
+mutual matches,
+people i like == people who liked me

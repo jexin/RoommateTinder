@@ -9,6 +9,7 @@
         <a href="/">Log out</a>
     </li>
     <li style="float:right"><a href="">My Profile</a></li>
+    <li style="float:right"><a href="/mymatches">My Matches</a></li>
   </ul>
 </div>
 
@@ -23,7 +24,9 @@
     {% if is_my_profile %}
       <button style="float:right" name="Edit">Edit Profile</button></h1>
     {% else %}
-      <button style="float:right" name="like">Like</button></h1>
+      <form action="/profile?key={{person.key.urlsafe()}}" method="post">
+        <button style="float:right" name="like">Like</button></h1>
+      </form>
     {% endif %}
     <div>Email: {{person.email}}</div>
     <div>Year: {{person.year}}</div>
@@ -39,13 +42,5 @@
       Upload a profile photo: <input name="image" type="file"><br>
       <button>Upload</button>
   </form>
+  <br><br><br>
 {% endif %}
-
-<!--buttons-->
-<br><br><br>
-<form action="/mymatches">
-    <button>My Matches</button>
-</form>
-<form action="/potentialroomies">
-    <button>Potential Matches</button>
-</form>
