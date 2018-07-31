@@ -8,7 +8,7 @@
     <li style="float:right">
         <a href="/">Log out</a>
     </li>
-    <li style="float:right"><a href="/profile?">My Profile</a></li>
+    <li style="float:right"><a href="/profile?key={{current_person.key.urlsafe()}}">My Profile</a></li>
     <li style="float:right"><a href="/mymatches">My Matches</a></li>
   </ul>
 </div>
@@ -26,13 +26,12 @@
   <div id="right">
     <ul id="roomiesList">
     {% for person in people %} <!--this currently isn't showing up bc sign up page isnt allowing people to be added to the database-->
+        {% if current_person.key !=  person.key %}
         <div id = "roomiesItem">
           <li>{{person.name}}</li>
           <a href="/profile?key={{person.key.urlsafe()}}">View Profile</a>
-          <form action="/potentialroomies">
-              <button>Like</button>
-          </form>
         </div>
+        {% endif %}
     {% endfor %}
     </ul>
   </div>

@@ -72,6 +72,7 @@ class ProfilePage(webapp2.RequestHandler):
         is_my_profile = current_user and current_user.email() == person.email
         # 3. Render the response
         templateVars = {
+            "current_person" : current_person,
             "person" : person,
             "is_my_profile" : is_my_profile,
         }
@@ -134,7 +135,7 @@ class PotentialRoomies(webapp2.RequestHandler):
         current_person = Person.query().filter(Person.email == current_user.email()).get()
         logging.info(current_person)
         #2
-        people = Person.query().filter(Person.gender == current_person.gender).filter(Person.college == current_person.college).filter(Person.year == current_person.year).fetch()
+        people = Person.query().filter(Person.gender == current_person.gender).fetch()
         #people = people.remove(Person.email == current_user.email())
         #3
         templateVars = {
