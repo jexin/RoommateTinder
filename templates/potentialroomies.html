@@ -29,9 +29,6 @@
         <div id = "roomiesItem">
           <li>{{person.name}}</li>
           <a href="/profile?key={{person.key.urlsafe()}}">View Profile</a>
-          <form action="/potentialroomies">
-              <button>Like</button>
-          </form>
         </div>
     {% endfor %}
     </ul>
