@@ -2,14 +2,10 @@
 <link rel="stylesheet" href="/stylesheets/profile.css">
 
 <ul id="navbar">
-  <li><a href="/">Home</a></li>
+  <li><a href="/potentialroomies">Home</a></li>
   <li><a href="">About Us</a></li>
   <li style="float:right">
-    {% if current_user %}
-      <a href="{{logout_url}}">Log out</a>
-    {% else %}
-      <a href="{{login_url}}">Log in</a>
-    {% endif %}
+      <a href="/">Log out</a>
   </li>
   <li  style="float:right"><a href="">My Profile</a></li>
 </ul>
