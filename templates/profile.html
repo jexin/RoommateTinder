@@ -2,14 +2,10 @@
 <link rel="stylesheet" href="/stylesheets/profile.css">
 
 <ul id="navbar">
-  <li><a href="/">Home</a></li>
+  <li><a href="/potentialroomies">Home</a></li>
   <li><a href="">About Us</a></li>
   <li style="float:right">
-    {% if current_user %}
-      <a href="{{logout_url}}">Log out</a>
-    {% else %}
-      <a href="{{login_url}}">Log in</a>
-    {% endif %}
+      <a href="/">Log out</a>
   </li>
   <li  style="float:right"><a href="">My Profile</a></li>
 </ul>
@@ -19,6 +15,10 @@
 <img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}">
 <h1>{{person.name}}</h1>
 <div>Email: {{person.email}}</div>
+<div>Year: {{person.year}}</div>
+<div>College: {{person.college}}</div>
+<div>City: {{person.city}}</div>
+<div>State: {{person.state}}</div>
 <div>About me: {{person.bio}}</div>
 <img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}">
 
