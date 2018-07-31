@@ -1,4 +1,4 @@
-ul {
+#navbar ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -6,11 +6,19 @@ ul {
     background-color: #ccc;
 }
 
-li {
+#navbar li {
     float: left;
 }
 
-li a {
+#logo {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  background-color: #555;
+}
+
+#navbar li a {
     display: block;
     color: white;
     text-align: center;
@@ -19,6 +27,18 @@ li a {
 }
 
 /* Change the link color to #111 (black) on hover */
-li a:hover {
+#navbar li a:hover {
     background-color: #111;
+}
+
+#content {
+  display:flex;
+  flex-direction: row;
+  padding:15px;
+}
+#left {
+   flex:1 4 200px;
+}
+#right {
+  flex:4 1 auto;
 }
