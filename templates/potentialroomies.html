@@ -15,18 +15,49 @@
   </ul>
 </div>
 
-<div id="right">
-  <ul id="roomiesList">
-    {% for person in people %}
-      {% if current_person.key !=  person.key %}
-        <div id = "roomiesItem">
-          <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
-          <div class="info" id="name"><li>{{person.name}}</li></div>
-          <div class="info">{{person.year}} at {{person.college}}</div>
-          <div class="info">{{person.city}}, {{person.state}}</div>
-          <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </ul>
+<div class="container">
+  <div id="left">
+    <form action="/create" method="post">
+      <div>
+        <h4 class="filter">Filter by:</h4>
+      </div>
+      <div class="filter">
+        <input name="city" type="checkbox">
+        <label for="newsletter">City</label>
+      </div>
+      <div class="filter">
+        <input name="filter" type="checkbox">
+        <label for="newsletter">something</label>
+      </div>
+      <div class="filter">
+        <input name="filter" type="checkbox">
+        <label for="newsletter">something</label>
+      </div>
+      <div class="filter">
+        <input name="filter" type="checkbox">
+        <label for="newsletter">something</label>
+      </div>
+      <div class="filter">
+        <input name="filter" type="checkbox">
+        <label for="newsletter">something</label>
+      </div>
+      <button id="filterbutton">Filter</button>
+      </form>
+    </div>
+
+  <div id="right">
+    <ul id="roomiesList">
+      {% for person in people %}
+        {% if current_person.key !=  person.key %}
+          <div id = "roomiesItem">
+            <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
+            <div class="info" id="name"><li>{{person.name}}</li></div>
+            <div class="info">{{person.year}} at {{person.college}}</div>
+            <div class="info">{{person.city}}, {{person.state}}</div>
+            <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
 </div>

@@ -206,12 +206,12 @@ class MyMatches(webapp2.RequestHandler):
         for like in current_person_likes:
             logging.info(like)
             liked = Person.query().filter(Person.key == like.liked_key).get()
-            if liked:
+            if liked and not liked in people_person_likes:
                 people_person_likes.append(liked)
 
         for like in likes_current_person:
             liker = Person.query().filter(Person.key == like.liker_key).get()
-            if liker:
+            if liker and not liker in people_likes_person:
                 people_likes_person.append(liker)
 
         for like in mutual_likes:

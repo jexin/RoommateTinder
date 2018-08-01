@@ -95,3 +95,27 @@ a:hover, a:visited, a:link, a:active {
   text-decoration: none;
   display: inline-block;
 }
+
+#left {
+  float:left;
+  border: 2px solid #005792;
+  margin: 20px 10px 20px 20px;
+  padding-right: 10px;
+  border-radius: 8px;
+}
+
+.filter {
+  margin: 20px;
+}
+
+
+#filterbutton {
+  margin: 0px 0px 20px 20px;
+  background-color: #005792;
+  color: white;
+  padding: 7px 15px 7px 15px;
+  border-radius: 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
