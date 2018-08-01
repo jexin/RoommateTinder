@@ -197,13 +197,13 @@ class PotentialRoomies(webapp2.RequestHandler):
         people = people.filter(Person.college == current_person.college)
         people = people.filter(Person.year == current_person.year).fetch()
 
-        if self.request.get("city") == "on":
+        if self.request.get("city_filter") == "on":
             people = Person.query().filter(Person.city == current_person.city).fetch()
-        if self.request.get("state") == "on":
+        if self.request.get("state_filter") == "on":
             people = Person.query().filter(Person.state == current_person.state).fetch()
-        if self.request.get("smoke") == "on":
+        if self.request.get("smoke_filter") == "on":
             people = Person.query().filter(Person.smoke == current_person.smoke).fetch()
-        if self.request.get("hobbies") == "on":
+        if self.request.get("hobbies_filter") == "on":
             people = Person.query().filter(Person.hobbies == current_person.hobbies).fetch()
         #3
         current_person_likes = Like.query().filter(Like.liker_key == current_person.key).fetch()
@@ -227,13 +227,13 @@ class PotentialRoomies(webapp2.RequestHandler):
 
         for like in mutual_likes:
             liker = Person.query().filter(Person.key == like.liker_key).get()
-            if liker:
+            if liker and not liker in matches:
                 matches.append(liker)
             liked = Person.query().filter(Person.key == like.liked_key).get()
-            if liked:
+            if liked and not liked in matches:
                 matches.append(liked)
         logout_url = users.create_logout_url("/")
-        
+
         templateVars = {
             "current_person" : current_person,
             "people" : people,
