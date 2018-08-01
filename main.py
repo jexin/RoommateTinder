@@ -194,7 +194,7 @@ class PotentialRoomies(webapp2.RequestHandler):
         people = Person.query().filter(Person.gender == current_person.gender)
         people = people.filter(Person.college == current_person.college)
         people = people.filter(Person.year == current_person.year).fetch()
-        #3
+        #3            
         logout_url = users.create_logout_url("/")
         templateVars = {
             "current_person" : current_person,
