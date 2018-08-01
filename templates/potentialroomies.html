@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-
+<head>
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+</head>
 <!--link to potential roommates-->
 <link rel="stylesheet" href="/stylesheets/potentialroomies.css">
 
@@ -17,29 +19,25 @@
 
 <div class="container">
   <div id="left">
-    <form action="/create" method="post">
+      <form action="/potentialroomies" method="get">
       <div>
         <h4 class="filter">Filter by:</h4>
       </div>
       <div class="filter">
         <input name="city" type="checkbox">
-        <label for="newsletter">City</label>
+        <label for="city">City</label>
       </div>
       <div class="filter">
-        <input name="filter" type="checkbox">
-        <label for="newsletter">something</label>
+        <input name="state" type="checkbox">
+        <label for="state">State</label>
       </div>
       <div class="filter">
-        <input name="filter" type="checkbox">
-        <label for="newsletter">something</label>
+        <input name="smoking" type="checkbox">
+        <label for="smoking">Smoking</label>
       </div>
       <div class="filter">
-        <input name="filter" type="checkbox">
-        <label for="newsletter">something</label>
-      </div>
-      <div class="filter">
-        <input name="filter" type="checkbox">
-        <label for="newsletter">something</label>
+        <input name="hobbies" type="checkbox">
+        <label for="hobbies">Hobbies</label>
       </div>
       <button id="filterbutton">Filter</button>
       </form>
@@ -61,3 +59,21 @@
     </ul>
   </div>
 </div>
+
+<script src="potentialroomies.js"></script>
+
+<script>
+$('#left').click(function(e){
+	if (e.target.checked) {
+  	localStorage.checked = true;
+  } else {
+  	localStorage.checked = false;
+  }
+})
+
+$( document ).ready(function() {
+
+	document.querySelector('#checkBox').checked = localStorage.checked
+
+});
+</script>

@@ -189,12 +189,20 @@ class PotentialRoomies(webapp2.RequestHandler):
         #1
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
-        logging.info(current_person)
         #2
         people = Person.query().filter(Person.gender == current_person.gender)
         people = people.filter(Person.college == current_person.college)
         people = people.filter(Person.year == current_person.year).fetch()
-        #3            
+
+        if self.request.get("city") == "on":
+            people = Person.query().filter(Person.city == current_person.city).fetch()
+        if self.request.get("state") == "on":
+            people = Person.query().filter(Person.state == current_person.state).fetch()
+        if self.request.get("smoke") == "on":
+            people = Person.query().filter(Person.smoke == current_person.smoke).fetch()
+        if self.request.get("hobbies") == "on":
+            people = Person.query().filter(Person.hobbies == current_person.hobbies).fetch()
+        # #3
         logout_url = users.create_logout_url("/")
         templateVars = {
             "current_person" : current_person,
