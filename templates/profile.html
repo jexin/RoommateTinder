@@ -16,8 +16,8 @@
 <title>Profile Page for {{person.name}}</title>
 
 <div id="content">
-  <div id="left">
-    <img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
+  <div>
+    <img id="image" width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
   </div>
   <div id="right">
     <h1 class="info" id="name">{{person.name}}</h1>
@@ -133,7 +133,7 @@
 </div>
 
 {% if is_my_profile %}
-  <form action="/upload_photo" method="post" enctype="multipart/form-data">
+  <form id="upload" action="/upload_photo" method="post" enctype="multipart/form-data">
       Upload a profile photo: <input name="image" type="file"><br>
       <button>Upload</button>
   </form>
