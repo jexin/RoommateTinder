@@ -13,10 +13,27 @@
   </ul>
 </div>
 
+<div>Mutual likes</div>
+<div id="right">
+  <ul id="roomiesList">
+    {% for person in matches %}
+      {% if current_person.key != person.key %}
+        <div id = "roomiesItem">
+          <div><li>{{person.name}}</li></div>
+          <div><img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
+          <div>{{person.year}} at {{person.college}}</div>
+          <div>{{person.city}}, {{person.state}}</div>
+          <div><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
 <div>People I liked</div>
 <div id="right">
   <ul id="roomiesList">
-    {% for person in current_person_likes %}
+    {% for person in people_person_likes %}
       {% if current_person.key !=  person.key %}
         <div id = "roomiesItem">
           <div><li>{{person.name}}</li></div>
@@ -33,25 +50,8 @@
 <div>People who liked me</div>
 <div id="right">
   <ul id="roomiesList">
-    {% for person in likes_current_person %}
+    {% for person in people_likes_person %}
       {% if current_person.key !=  person.key %}
-        <div id = "roomiesItem">
-          <div><li>{{person.name}}</li></div>
-          <div><img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
-          <div>{{person.year}} at {{person.college}}</div>
-          <div>{{person.city}}, {{person.state}}</div>
-          <div><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </ul>
-</div>
-
-<div>Mutual likes</div>
-<div id="right">
-  <ul id="roomiesList">
-    {% for person in matches %}
-      {% if current_person.key != person.key %}
         <div id = "roomiesItem">
           <div><li>{{person.name}}</li></div>
           <div><img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>

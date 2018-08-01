@@ -194,31 +194,36 @@ class MyMatches(webapp2.RequestHandler):
         likes_current_person = Like.query().filter(Like.liked_key == current_person.key).fetch()
         mutual_likes = current_person_likes and likes_current_person
 
+        people_person_likes= []
+        people_likes_person = []
         matches = []
+
+        for like in current_person_likes:
+            logging.info(like)
+            liked = Person.query().filter(Person.key == like.liked_key).get()
+            if liked:
+                people_person_likes.append(liked)
+
+        for like in likes_current_person:
+            liker = Person.query().filter(Person.key == like.liker_key).get()
+            if liker:
+                people_likes_person.append(liker)
+
         for like in mutual_likes:
-            #logging.info(like.liker_key)
             liker = Person.query().filter(Person.key == like.liker_key).get()
             if liker:
                 matches.append(liker)
-            #logging.info(liker)
             liked = Person.query().filter(Person.key == like.liked_key).get()
             if liked:
                 matches.append(liked)
-        #logging.info(matches)
-
-        #turns Likes into People
-        # people_person_likes = Person.query().filter(Person.key == current_person_likes.key).fetch()
-        # people_likes_person = Person.query().filter(Person.key == likes_current_person.key).fetch()
         #3
         logout_url = users.create_logout_url("/")
         templateVars = {
             "current_person" : current_person,
-            "current_person_likes" : current_person_likes,
-            "likes_current_person" : likes_current_person,
+            "people_person_likes" : people_person_likes,
+            "people_likes_person" : people_likes_person,
             "matches" : matches,
             "logout_url" : logout_url,
-            # "people_person_likes" : people_person_likes,
-            # "people_likes_person" : people_likes_person,
         }
         template = env.get_template("templates/mymatches.html")
         self.response.write(template.render(templateVars))
