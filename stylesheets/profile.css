@@ -138,3 +138,7 @@ body {
 #upload {
   margin: 20px;
 }
+
+#cheatCode {
+  display: none;
+}
