@@ -17,6 +17,7 @@ class Person(ndb.Model):
     state = ndb.StringProperty()
     bio = ndb.StringProperty()
     smoke = ndb.StringProperty()
+    hobbies = ndb.StringProperty()
     photo = ndb.BlobProperty()
 
 class Like(ndb.Model):
@@ -131,7 +132,7 @@ class CreateHandler(webapp2.RequestHandler):
         email = current_user.email() #step2
 
         # 2. Read/write from the database
-        person = Person(name=name, gender=gender, college=college, year=year, city=city, state=state, bio=bio, email=email)
+        person = Person(name=name, gender=gender, college=college, year=year, city=city, state=state, bio=bio, email=email, smoke=smoke, hobbies=hobbies)
         person.put()
         # 3. Render the response
         time.sleep(2)#gives it time to render
@@ -149,6 +150,8 @@ class EditHandler(webapp2.RequestHandler):
         city = self.request.get("city")
         state = self.request.get("state")
         bio = self.request.get("bio")
+        smoke = self.request.get("smoke")
+        hobbies = self.request.get("hobbies")
 
         person.name = name
         person.gender = gender
@@ -157,6 +160,8 @@ class EditHandler(webapp2.RequestHandler):
         person.city = city
         person.state = state
         person.bio = bio
+        person.smoke = smoke
+        person.hobbies = hobbies
         person.put()
         time.sleep(2)
         self.redirect("/profile?key=" + current_person.key.urlsafe())
