@@ -160,7 +160,13 @@ class PhotoHandler(webapp2.RequestHandler):
         key = ndb.Key(urlsafe=urlsafe_key)
         person = key.get()
         self.response.headers["Content-Type"] = "image/jpg"
-        self.response.write(person.photo)
+        print(person.photo)
+        if not person.photo:
+            f=open("images/defaultpic.jpg","r")
+            self.response.write(f.read())
+            f.close()
+        else:
+            self.response.write(person.photo)
 
 class PotentialRoomies(webapp2.RequestHandler):
     def get(self):
