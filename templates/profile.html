@@ -128,7 +128,14 @@
     <div class="info">College: {{person.college}}</div>
     <div class="info">{{person.city}}, {{person.state}}</div>
     <div class="info">About me: {{person.bio}}</div>
-    <div class="info">Email: {{person.email}}</div>
+    {% if is_my_profile %}
+      <div class="info" style="display:block;">Email: {{person.email}}</div>
+    {% elif person in matches %}
+      <p><strong>Congratulations! This is a mutual match. Contact info: </strong></p>
+      <div class="info" style="display:block;">Email: {{person.email}}</div>
+    {% else %}
+      <div class="info" style="display:none;">Email: {{person.email}}</div>
+    {% endif %}
   </div>
 </div>
 

@@ -68,28 +68,42 @@ class ProfilePage(webapp2.RequestHandler):
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
         # 2. Read/write from the database
-        key = ndb.Key(urlsafe=urlsafe_profile_key) # rom url to key
+        key = ndb.Key(urlsafe=urlsafe_profile_key) # from url to key
         viewed_person = key.get() #from key to person object
 
         is_my_profile = current_user and current_user.email() == viewed_person.email
         logout_url = users.create_logout_url("/")
+
+        current_person_likes = Like.query().filter(Like.liker_key == current_person.key).fetch()
+        likes_current_person = Like.query().filter(Like.liked_key == current_person.key).fetch()
+        mutual_likes = current_person_likes and likes_current_person
+
+        matches = []
+
+        for like in mutual_likes:
+            liker = Person.query().filter(Person.key == like.liker_key).get()
+            if liker:
+                matches.append(liker)
+            liked = Person.query().filter(Person.key == like.liked_key).get()
+            if liked:
+                matches.append(liked)
+                
         # 3. Render the response
         templateVars = {
             "current_person" : current_person,
             "person" : viewed_person,
             "is_my_profile" : is_my_profile,
             "logout_url" : logout_url,
+            "matches" : matches,
         }
         template = env.get_template("templates/profile.html")
         self.response.write(template.render(templateVars))
 
     def post(self):
         #1
-        #urlsafe_key = self.request.get("") #main issue
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
 
-        #key = ndb.Key(urlsafe=urlsafe_key) # rom url to key
         viewed_profile_key = self.request.get("viewed_profile_key") #this is the urlsafe key gettingreturned
         key = ndb.Key(urlsafe=viewed_profile_key)
         viewed_profile = key.get()
@@ -176,8 +190,7 @@ class PotentialRoomies(webapp2.RequestHandler):
         #2
         people = Person.query().filter(Person.gender == current_person.gender)
         people = people.filter(Person.college == current_person.college)
-        people = people.filter(Person.year == current_person.year)
-        #people = people.remove(Person.email == current_user.email())
+        people = people.filter(Person.year == current_person.year).fetch()
         #3
         logout_url = users.create_logout_url("/")
         templateVars = {
