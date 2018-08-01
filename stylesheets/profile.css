@@ -35,12 +35,21 @@
     background-color: #111;
 }
 
+#navbar #floatRight {
+  float: right;
+}
+
+@media screen and (max-width: 600px){
+    #navbar li,
+    #navbar #floatRight {float: none;}
+}
+
 #content {
   display:flex;
   flex-direction: row;
 }
 #left {
-  padding-top:15px;
+  padding:15px 0;
    flex:1 4 200px;
 }
 #right {
@@ -48,7 +57,7 @@
   flex:4 1 auto;
 }
 #right h1 {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 #right button {

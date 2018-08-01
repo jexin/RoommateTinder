@@ -14,6 +14,15 @@
     float: left;
 }
 
+#navbar #floatRight {
+  float: right;
+}
+
+@media screen and (max-width: 600px){
+    #navbar li,
+    #navbar #floatRight {float: none;}
+}
+
 #logo {
   display: block;
   color: white;
@@ -46,8 +55,6 @@
 #roomiesItem {
   list-style-type: none;
   margin:0 20px 20px 0;
-  width:250px;
-  height:300px;
   padding: 10px;
   border: 1px solid lightgrey;
   font-family: serif;
