@@ -1,5 +1,5 @@
 body {
-  background-color: #d9faff;
+  background-color: #d5eeff;
   font-family: 'Roboto', sans-serif;
 }
 #navbar {
@@ -137,4 +137,8 @@ body {
 
 #upload {
   margin: 20px;
+}
+
+#cheatCode {
+  display: none;
 }

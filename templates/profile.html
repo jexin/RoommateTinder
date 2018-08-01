@@ -55,7 +55,7 @@
               <input name="city" value="{{current_person.city}}"><br>
               <br>
               <label>State</label>
-              <select name="state">
+              <select id="state" name="state">
               	<option value="AL">Alabama</option>
               	<option value="AK">Alaska</option>
               	<option value="AZ">Arizona</option>
@@ -109,6 +109,20 @@
               	<option value="WY">Wyoming</option>
               </select>
               <br><br>
+              <label>Do you smoke regularly? </label>
+              <select id="smoke" name="smoke">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+              <label>Select your favorite hobby: </label>
+              <select id="hobbies" name="hobbies">
+                <option value="Sports">Sports</option>
+                <option value="Art">Arts</option>
+                <option value="Coding">Coding</option>
+                <option value="Watching Netflix">Watching Netflix</option>
+                <option value="Being with friends and family">Being with friends and family</option>
+              </select>
+              <br><br>
               <label>Short Bio</label>
               <input name="bio" value="{{current_person.bio}}"><br><br>
               <label>Do you smoke regularly? </label>
@@ -135,14 +149,13 @@
         <button style="float:right" name="like">Like</button>
       </form>
     {% endif %}
-
     <div class="info">Gender: {{person.gender}}</div>
     <div class="info">Year: {{person.year}}</div>
     <div class="info">College: {{person.college}}</div>
     <div class="info">{{person.city}}, {{person.state}}</div>
-    <div class="info">About me: {{person.bio}}</div>
     <div class="info">Smoking: {{person.smoke}}</div>
     <div class="info">Favorite hobby: {{person.hobbies}}</div>
+    <div class="info">About me: {{person.bio}}</div>
 
     {% if is_my_profile %}
       <div class="info" style="display:block;">Email: {{person.email}}</div>
@@ -163,6 +176,13 @@
   <br><br><br>
 {% endif %}
 
+<div id="cheatCode">
+  <div class="gender">{{person.gender}}</div>
+  <div class="year">{{person.year}}</div>
+  <div class="state">{{person.state}}</div>
+  <div class="smoke">{{person.smoke}}</div>
+  <div class="hobbies">{{person.hobbies}}</div>
+</div>
 
 <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
 <script>

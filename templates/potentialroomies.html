@@ -24,26 +24,26 @@
         <h4 class="filter">Filter by:</h4>
       </div>
       <div class="filter">
-        <input name="city_filter" type="checkbox">
+        <input id="city_filter" name="city_filter" type="checkbox">
         <label for="city">City</label>
       </div>
       <div class="filter">
-        <input name="state_filter" type="checkbox">
+        <input id="state_filter" name="state_filter" type="checkbox">
         <label for="state">State</label>
       </div>
       <div class="filter">
-        <input name="smoking_filter" type="checkbox">
+        <input id="smoking_filter" name="smoking_filter" type="checkbox">
         <label for="smoking">Smoking</label>
       </div>
       <div class="filter">
-        <input name="hobbies_filter" type="checkbox">
+        <input id="hobbies_filter" name="hobbies_filter" type="checkbox">
         <label for="hobbies">Hobbies</label>
       </div>
       <button id="filterbutton">Filter</button>
       </form>
-      <p class="colorcode">GREEN = match</p>
-      <p class="colorcode">RED = waiting for like</p>
-      <p class="colorcode">BLUE = people to like</p>
+      <p class="colorcode"><span style="color:red">RED</span> = waiting for like</p>
+      <p class="colorcode"><span style="color:green">GREEN</span> = match</p>
+      <p class="colorcode"><span style="color:#005792">BLUE</span> = people to like</p>
     </div>
 
   <div id="right">
@@ -67,7 +67,7 @@
             <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
           </div>
           {% else %}
-          <div id = "roomiesItem">
+          <div id="roomiesItem">
             <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
             <div class="info" id="name"><li>{{person.name}}</li></div>
             <div class="info">{{person.year}} at {{person.college}}</div>
@@ -81,20 +81,4 @@
   </div>
 </div>
 
-<script src="potentialroomies.js"></script>
-
-<script>
-$('#left').click(function(e){
-	if (e.target.checked) {
-  	localStorage.checked = true;
-  } else {
-  	localStorage.checked = false;
-  }
-})
-
-$( document ).ready(function() {
-
-	document.querySelector('#checkBox').checked = localStorage.checked
-
-});
-</script>
+<script src="/javascript/potentialroomies.js"></script>

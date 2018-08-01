@@ -132,7 +132,7 @@ class CreateHandler(webapp2.RequestHandler):
         email = current_user.email() #step2
 
         # 2. Read/write from the database
-        person = Person(name=name, gender=gender, college=college, year=year, city=city, state=state, bio=bio, email=email)
+        person = Person(name=name, gender=gender, college=college, year=year, city=city, state=state, bio=bio, email=email, smoke=smoke, hobbies=hobbies)
         person.put()
         # 3. Render the response
         time.sleep(2)#gives it time to render
