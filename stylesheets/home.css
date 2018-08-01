@@ -1,4 +1,6 @@
 body {
+  background-color: #d9faff;
+  font-family: 'Roboto', sans-serif;
   text-align: center;
 }
 
@@ -19,4 +21,14 @@ header {
     margin-left: 0%;
     width: 100%;
   }
+}
+
+a:hover, a:visited, a:link, a:active {
+  background-color: #005792;
+  color: white;
+  padding: 7px 15px 7px 15px;
+  border-radius: 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }

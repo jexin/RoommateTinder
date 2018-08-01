@@ -35,7 +35,7 @@ body {
 
 /* Change the link color to #111 (black) on hover */
 #navbar li a:hover {
-    background-color: #111;
+    background-color: #00204a;
 }
 
 #navbar #floatRight {
@@ -64,7 +64,7 @@ body {
 }
 
 #right button {
-    background-color: #ccc;
+    background-color: #005792;
     border-radius: 4px;
     border: none;
     color: white;
@@ -77,7 +77,7 @@ body {
 }
 
 #right button:hover {
-    background-color: #111;
+    background-color: #00204a;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
@@ -115,7 +115,17 @@ body {
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #00204a;
     text-decoration: none;
     cursor: pointer;
+}
+
+#name {
+  font-size: 20px;
+}
+
+.info {
+  font-size: 15px;
+  margin-bottom: 6px;
+  color: black;
 }

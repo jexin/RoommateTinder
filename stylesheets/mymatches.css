@@ -44,7 +44,7 @@ body {
 
 /* Change the link color to #111 (black) on hover */
 #navbar li a:hover {
-    background-color: #111;
+    background-color: #00204a;
 }
 
 #roomiesList {
@@ -57,11 +57,12 @@ body {
 
 #roomiesItem {
   width: 250px;
-  background-color: white;
+  background-color: #f2fcff;
   list-style-type: none;
   margin: 20px;
   padding: 0px;
   border: 2px solid #005792;
+  border-radius: 8px;
   text-align: center;
 }
 
@@ -80,6 +81,18 @@ body {
   width: 100%;
   length: 100%;
   padding: 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+a:hover, a:visited, a:link, a:active {
+  background-color: #005792;
+  color: white;
+  padding: 7px 15px 7px 15px;
+  border-radius: 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .header {

@@ -20,7 +20,7 @@
     <img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
   </div>
   <div id="right">
-    <h1>{{person.name}}</h1>
+    <h1 class="info" id="name">{{person.name}}</h1>
     {% if is_my_profile %}
       <button id="edit" style="float:right" name="Edit">Edit Profile</button>
       <form action="/edit" method="post">
@@ -123,12 +123,12 @@
       </form>
     {% endif %}
 
-    <div>Gender: {{person.gender}}</div>
-    <div>Year: {{person.year}}</div>
-    <div>College: {{person.college}}</div>
-    <div>{{person.city}}, {{person.state}}</div>
-    <div>About me: {{person.bio}}</div>
-    <div>Email: {{person.email}}</div>
+    <div class="info">Gender: {{person.gender}}</div>
+    <div class="info">Year: {{person.year}}</div>
+    <div class="info">College: {{person.college}}</div>
+    <div class="info">{{person.city}}, {{person.state}}</div>
+    <div class="info">About me: {{person.bio}}</div>
+    <div class="info">Email: {{person.email}}</div>
   </div>
 </div>
 
