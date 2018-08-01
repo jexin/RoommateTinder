@@ -19,7 +19,7 @@
     {% for person in matches %}
       {% if current_person.key != person.key %}
       <div id = "roomiesItem">
-        <div><img id="image" width="250" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
+        <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
         <div class="info" id="name"><li>{{person.name}}</li></div>
         <div class="info">{{person.year}} at {{person.college}}</div>
         <div class="info">{{person.city}}, {{person.state}}</div>
@@ -36,7 +36,7 @@
     {% for person in people_person_likes %}
       {% if current_person.key !=  person.key %}
       <div id = "roomiesItem">
-        <div><img id="image" width="250" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
+        <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
         <div class="info" id="name"><li>{{person.name}}</li></div>
         <div class="info">{{person.year}} at {{person.college}}</div>
         <div class="info">{{person.city}}, {{person.state}}</div>
@@ -53,7 +53,7 @@
     {% for person in people_likes_person %}
       {% if current_person.key !=  person.key %}
       <div id = "roomiesItem">
-        <div><img id="image" width="250" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
+        <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
         <div class="info" id="name"><li>{{person.name}}</li></div>
         <div class="info">{{person.year}} at {{person.college}}</div>
         <div class="info">{{person.city}}, {{person.state}}</div>
