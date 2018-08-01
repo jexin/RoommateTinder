@@ -43,12 +43,32 @@
       </div>
       <button id="filterbutton">Filter</button>
       </form>
+      <p>GREEN = match</p>
+      <p>RED = waiting for like</p>
+      <p>BLUE = people to like</p>
     </div>
 
   <div id="right">
     <ul id="roomiesList">
       {% for person in people %}
         {% if current_person.key !=  person.key %}
+          {% if person in matches %}
+          <div id = "matchedRoomiesItem">
+            <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
+            <div class="info" id="name"><li>{{person.name}}</li></div>
+            <div class="info">{{person.year}} at {{person.college}}</div>
+            <div class="info">{{person.city}}, {{person.state}}</div>
+            <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
+          </div>
+          {% elif person in people_likes_person %}
+          <div id = "likedRoomiesItem">
+            <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
+            <div class="info" id="name"><li>{{person.name}}</li></div>
+            <div class="info">{{person.year}} at {{person.college}}</div>
+            <div class="info">{{person.city}}, {{person.state}}</div>
+            <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
+          </div>
+          {% else %}
           <div id = "roomiesItem">
             <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
             <div class="info" id="name"><li>{{person.name}}</li></div>
@@ -56,6 +76,7 @@
             <div class="info">{{person.city}}, {{person.state}}</div>
             <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
           </div>
+          {% endif %}
         {% endif %}
       {% endfor %}
     </ul>
