@@ -1,3 +1,7 @@
+body {
+  background-color: #d9faff;
+  font-family: 'Roboto', sans-serif;
+}
 #navbar {
   margin:-8px -8px 5px -8px;
 }
@@ -7,7 +11,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #ccc;
+    background-color: #005792;
 }
 
 #navbar li {
@@ -28,7 +32,6 @@
   color: white;
   text-align: center;
   padding: 14px 16px;
-  background-color: #555;
 }
 
 #navbar li a {
@@ -53,10 +56,35 @@
 }
 
 #roomiesItem {
+  width: 250px;
+  background-color: white;
   list-style-type: none;
-  margin:0 20px 20px 0;
-  padding: 10px;
-  border: 1px solid lightgrey;
-  font-family: serif;
+  margin: 20px;
+  padding: 0px;
+  border: 2px solid #005792;
   text-align: center;
+}
+
+#name {
+  font-size: 20px;
+}
+
+.info {
+  font-size: 15px;
+  margin-bottom: 6px;
+  color: black;
+}
+
+#image {
+  margin-bottom: 5px;
+  width: 100%;
+  length: 100%;
+  padding: 0;
+}
+
+.header {
+  margin: 10px;
+  padding: 10px;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }

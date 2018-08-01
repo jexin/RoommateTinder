@@ -160,7 +160,6 @@ class PhotoHandler(webapp2.RequestHandler):
         key = ndb.Key(urlsafe=urlsafe_key)
         person = key.get()
         self.response.headers["Content-Type"] = "image/jpg"
-        print(person.photo)
         if not person.photo:
             f=open("images/defaultpic.jpg","r")
             self.response.write(f.read())

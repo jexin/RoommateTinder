@@ -13,52 +13,52 @@
   </ul>
 </div>
 
-<div>Mutual likes</div>
+<div class="header">Mutual likes:</div>
 <div id="right">
   <ul id="roomiesList">
     {% for person in matches %}
       {% if current_person.key != person.key %}
-        <div id = "roomiesItem">
-          <div><li>{{person.name}}</li></div>
-          <div><img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
-          <div>{{person.year}} at {{person.college}}</div>
-          <div>{{person.city}}, {{person.state}}</div>
-          <div><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
-        </div>
+      <div id = "roomiesItem">
+        <div><img id="image" width="250" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
+        <div class="info" id="name"><li>{{person.name}}</li></div>
+        <div class="info">{{person.year}} at {{person.college}}</div>
+        <div class="info">{{person.city}}, {{person.state}}</div>
+        <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
+      </div>
       {% endif %}
     {% endfor %}
   </ul>
 </div>
 
-<div>People I liked</div>
+<div class="header">People I liked:</div>
 <div id="right">
   <ul id="roomiesList">
     {% for person in people_person_likes %}
       {% if current_person.key !=  person.key %}
-        <div id = "roomiesItem">
-          <div><li>{{person.name}}</li></div>
-          <div><img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
-          <div>{{person.year}} at {{person.college}}</div>
-          <div>{{person.city}}, {{person.state}}</div>
-          <div><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
-        </div>
+      <div id = "roomiesItem">
+        <div><img id="image" width="250" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
+        <div class="info" id="name"><li>{{person.name}}</li></div>
+        <div class="info">{{person.year}} at {{person.college}}</div>
+        <div class="info">{{person.city}}, {{person.state}}</div>
+        <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
+      </div>
       {% endif %}
     {% endfor %}
   </ul>
 </div>
 
-<div>People who liked me</div>
+<div class="header">People who liked me:</div>
 <div id="right">
   <ul id="roomiesList">
     {% for person in people_likes_person %}
       {% if current_person.key !=  person.key %}
-        <div id = "roomiesItem">
-          <div><li>{{person.name}}</li></div>
-          <div><img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
-          <div>{{person.year}} at {{person.college}}</div>
-          <div>{{person.city}}, {{person.state}}</div>
-          <div><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
-        </div>
+      <div id = "roomiesItem">
+        <div><img id="image" width="250" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
+        <div class="info" id="name"><li>{{person.name}}</li></div>
+        <div class="info">{{person.year}} at {{person.college}}</div>
+        <div class="info">{{person.city}}, {{person.state}}</div>
+        <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
+      </div>
       {% endif %}
     {% endfor %}
   </ul>
