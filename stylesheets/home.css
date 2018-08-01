@@ -1,5 +1,9 @@
 body {
-  background-color: #d9faff;
+  background: linear-gradient(#d5eeff, #1d97c1);
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: 'Playfair Display', serif;
   text-align: center;
 }
