@@ -16,6 +16,7 @@ class Person(ndb.Model):
     city = ndb.StringProperty()
     state = ndb.StringProperty()
     bio = ndb.StringProperty()
+    smoke = ndb.StringProperty()
     photo = ndb.BlobProperty()
 
 class Like(ndb.Model):
@@ -124,6 +125,8 @@ class CreateHandler(webapp2.RequestHandler):
         city = self.request.get("city")
         state = self.request.get("state")
         bio = self.request.get("bio")
+        smoke = self.request.get("smoke")
+        hobbies = self.request.get("hobbies")
         current_user = users.get_current_user() #step1
         email = current_user.email() #step2
 
