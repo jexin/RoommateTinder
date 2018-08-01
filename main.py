@@ -190,7 +190,10 @@ class PotentialRoomies(webapp2.RequestHandler):
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
         #2
-        people = Person.query().filter(Person.gender == current_person.gender)
+        if current_person.gender != "Other":
+            people = Person.query().filter(Person.gender == current_person.gender)
+        else:
+            people = Person.query()
         people = people.filter(Person.college == current_person.college)
         people = people.filter(Person.year == current_person.year).fetch()
 
@@ -203,11 +206,15 @@ class PotentialRoomies(webapp2.RequestHandler):
         if self.request.get("hobbies") == "on":
             people = Person.query().filter(Person.hobbies == current_person.hobbies).fetch()
         # #3
+
         logout_url = users.create_logout_url("/")
         templateVars = {
             "current_person" : current_person,
             "people" : people,
             "logout_url" : logout_url,
+            "people_person_likes" : people_person_likes,
+            "people_likes_person" : people_likes_person,
+            "matches" : matches,
         }
         template = env.get_template("templates/potentialroomies.html")
         self.response.write(template.render(templateVars))
