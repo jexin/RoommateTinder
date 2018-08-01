@@ -24,10 +24,11 @@ window.onclick = function(event) {
     }
 }
 
-// SelectElement("gender", "Other")
-//
-// function SelectElement(id, valueToSelect)
-// {
-//     var element = document.getElementById(id);
-//     element.value = valueToSelect;
-// }
+SelectElement("gender", "Female") //{{current_person.gender}}
+SelectElement("year", "Freshman") //{{current_person.year}}
+
+function SelectElement(id, valueToSelect)
+{
+    var element = document.getElementById(id);
+    element.value = valueToSelect;
+}
