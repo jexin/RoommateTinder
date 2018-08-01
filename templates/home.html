@@ -5,16 +5,13 @@
 <h1>Welcome to ROFL!</h1>
 <h2>Roommates On Fantastic Levels</h2>
 
-<div id="login">
 {% if current_user %}
   Welcome, {{current_user.email()}}
   <a href="{{logout_url}}">Log out</a>
 {% else %}
   <a href="{{login_url}}">Log in</a>
 {% endif %}
-</div>
 
-<div id="home">
 {% if current_user and not current_person %}
   <br><br>
   <form action="/create" method="post">
@@ -110,4 +107,3 @@
       <button>Go to Main</button>
   </form>
 {% endif %}
-</div>
