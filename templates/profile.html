@@ -17,7 +17,7 @@
 
 <div id="content">
   <div id="left">
-    <img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}">
+    <img width="240" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
   </div>
   <div id="right">
     <h1>{{person.name}}</h1>
@@ -33,7 +33,7 @@
               <input name="name" value="{{current_person.name}}"><br>
               <br>
               <label>Gender:</label>
-              <select name="gender" value="{{current_person.value}}">
+              <select id="gender" name="gender">
                 <option value="Female">Female</option>
                 <option value="Male">Male</option>
                 <option value="Other">Other</option>
@@ -44,8 +44,8 @@
               <input name="college" value="{{current_person.college}}"><br>
               <br>
               <label>Year</label>
-              <select name="year" value="{{current_person.year}}">
-                <option value="Freshman" selected>Freshman</option>
+              <select id="year" name="year">
+                <option value="Freshman">Freshman</option>
                 <option value="Sophomore">Sophomore</option>
                 <option value="Junior">Junior</option>
                 <option value="Senior">Senior</option>
@@ -55,7 +55,7 @@
               <input name="city" value="{{current_person.city}}"><br>
               <br>
               <label>State</label>
-              <select name="state" value="{{current_person.state}}">
+              <select name="state">
               	<option value="AL">Alabama</option>
               	<option value="AK">Alaska</option>
               	<option value="AZ">Arizona</option>

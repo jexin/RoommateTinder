@@ -15,19 +15,9 @@
   </ul>
 </div>
 
-<!-- <form action="/potentialroomies">
-    <button>Home</button>
-</form>
-<form action="/profile">
-    <button>My Profile</button>
-</form>
-<form action="/">
-    <button>Log Out</button>
-</form> -->
-
 <div id="right">
   <ul id="roomiesList">
-    {% for person in people %} <!--this currently isn't showing up bc sign up page isnt allowing people to be added to the database-->
+    {% for person in people %}
       {% if current_person.key !=  person.key %}
         <div id = "roomiesItem">
           <div><li>{{person.name}}</li></div>
