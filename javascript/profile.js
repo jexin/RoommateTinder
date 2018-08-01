@@ -23,3 +23,23 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+let genders = document.querySelector("#gender");
+let gender = document.querySelector(".gender");
+genders.value = gender.innerHTML;
+
+let years = document.querySelector("#year");
+let year = document.querySelector(".year");
+years.value = year.innerHTML;
+
+let states = document.querySelector("#state");
+let state = document.querySelector(".state");
+states.value = state.innerHTML;
+
+let smokes = document.querySelector("#smoke");
+let smoke = document.querySelector(".smoke");
+smokes.value = smoke.innerHTML;
+
+let hobbyes = document.querySelector("#hobbies");
+let hobbies = document.querySelector(".hobbies");
+hobbyes.value = hobbies.innerHTML;
