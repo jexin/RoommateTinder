@@ -33,6 +33,7 @@ class MainPage(webapp2.RequestHandler):
     def get(self):
         # 1. Read the request
         current_user = users.get_current_user()
+        #current_user is NONE right here
         # 2. Read/write from the database
         people = Person.query().fetch()
         if current_user: #if person exists
@@ -49,7 +50,7 @@ class MainPage(webapp2.RequestHandler):
             login_url = users.create_login_url("/")
         else:
             login_url = users.create_login_url("/")
-        print(login_url)
+
         templateVars = {
             "people" : people,
             "current_user" : current_user,
@@ -60,12 +61,17 @@ class MainPage(webapp2.RequestHandler):
         template = env.get_template("templates/home.html")
         self.response.write(template.render(templateVars))
 
-class ProfilePage(webapp2.RequestHandler):
+class ProfilePage(webapp2.RequestHandler): #has protection against the back button error (line 69-70)
     def get(self):
         # 1. Read the request
         urlsafe_profile_key = self.request.get("key") #get from url
         current_user = users.get_current_user()
-        current_person = Person.query().filter(Person.email == current_user.email()).get()
+        if not current_user:
+            self.redirect('/')
+            return
+        else:
+            current_person = Person.query().filter(Person.email == current_user.email()).get()
+
         # 2. Read/write from the database
         key = ndb.Key(urlsafe=urlsafe_profile_key) # from url to key
         viewed_person = key.get() #from key to person object
@@ -128,6 +134,11 @@ class ProfilePage(webapp2.RequestHandler):
 class CreateHandler(webapp2.RequestHandler):
     def post(self):
         # 1. Read the request
+        current_user = users.get_current_user()
+        if not current_user:
+            self.redirect('/')
+            return
+
         name = self.request.get("name")
         gender = self.request.get("gender")
         college = self.request.get("college")
@@ -202,19 +213,24 @@ class PotentialRoomies(webapp2.RequestHandler):
     def get(self):
         #1
         current_user = users.get_current_user()
-        current_person = Person.query().filter(Person.email == current_user.email()).get()
+        if not current_user:
+            self.redirect('/')
+            return
+        else:
+            current_person = Person.query().filter(Person.email == current_user.email()).get()
         #2
+
         people = Person.query()
 
+        if self.request.get("college_filter") == "on":
+            people = Person.query().filter(Person.college == current_person.college).fetch()
+        if self.request.get("year_filter") == "on":
+            people = Person.query().filter(Person.year == current_person.year).fetch()
         if self.request.get("gender_filter") == "on":
             if current_person.gender != "Other":
                 people = Person.query().filter(Person.gender == current_person.gender).fetch()
             else:
                 people = Person.query()
-        if self.request.get("college_filter") == "on":
-            people = Person.query().filter(Person.college == current_person.college).fetch()
-        if self.request.get("year_filter") == "on":
-            people = Person.query().filter(Person.year == current_person.year).fetch()
         if self.request.get("city_filter") == "on":
             people = Person.query().filter(Person.city == current_person.city).fetch()
         if self.request.get("state_filter") == "on":
@@ -266,7 +282,12 @@ class MyMatches(webapp2.RequestHandler):
     def get(self):
         #1
         current_user = users.get_current_user()
-        current_person = Person.query().filter(Person.email == current_user.email()).get()
+        if not current_user:
+            self.redirect('/')
+            return
+        else:
+            current_person = Person.query().filter(Person.email == current_user.email()).get()
+
         #2
         current_person_likes = Like.query().filter(Like.liker_key == current_person.key).fetch()
         likes_current_person = Like.query().filter(Like.liked_key == current_person.key).fetch()

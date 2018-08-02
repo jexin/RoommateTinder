@@ -67,22 +67,22 @@ header {
   list-style-type: none;
   margin: 20px 10px 10px 20px;
   padding: 0px;
-  border: 2px solid #005792;
+  border: 4px solid #005792;
   border-radius: 5px;
   text-align: center;
 }
 
 
 #likeRoomiesItem {
-  border: 2px solid yellow;
+  border: 4px solid yellow;
 }
 
 #likedRoomiesItem {
-  border: 2px solid red;
+  border: 4px solid pink;
 }
 
 #matchedRoomiesItem {
-  border: 2px solid green;
+  border: 4px solid green;
 }
 
 #name {
