@@ -152,9 +152,9 @@
         </div>
       </form>
     {% else %}
-      <form action="/profile" method="post">
+      <form action="/profile" method="post" id="likeform">
         <input type="hidden" name="viewed_profile_key" value="{{person.key.urlsafe()}}">
-        <button style="float:left" name="like">Like</button>
+        <button style="float:left" name="like" id="like">Like</button>
       </form>
     {% endif %}
     <br>
@@ -189,19 +189,5 @@
   <div class="smoke">{{person.smoke}}</div>
   <div class="hobbies">{{person.hobbies}}</div>
 </div>
-
-<!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCLJddXystpgO4qnhwmfgG8JzI4Yd4TOPY",
-    authDomain: "rofl-cssi.firebaseapp.com",
-    databaseURL: "https://rofl-cssi.firebaseio.com",
-    projectId: "rofl-cssi",
-    storageBucket: "rofl-cssi.appspot.com",
-    messagingSenderId: "803516191779"
-  };
-  firebase.initializeApp(config);
-</script> -->
 
 <script src="/javascript/profile.js"></script>
