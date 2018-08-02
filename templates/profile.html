@@ -45,7 +45,7 @@
             <form action="/create" method="post">
               <br>
               <label>Name:</label>
-              <input name="name" value="{{current_person.name}}"><br>
+              <input name="name" value="{{current_person.name}}" maxlength="20"><br>
               <br>
               <label>Gender:</label>
               <select id="gender" name="gender">
@@ -56,7 +56,7 @@
               <br>
               <br>
               <label>College:</label>
-              <input name="college" value="{{current_person.college}}"><br>
+              <input name="college" value="{{current_person.college}}" maxlength="50"><br>
               <br>
               <label>Year</label>
               <select id="year" name="year">
@@ -67,7 +67,7 @@
               </select>
               <br><br>
               <label>City</label>
-              <input name="city" value="{{current_person.city}}"><br>
+              <input name="city" value="{{current_person.city}}" maxlength="30"><br>
               <br>
               <label>State</label>
               <select id="state" name="state">
@@ -139,7 +139,7 @@
               </select>
               <br><br>
               <label>Short Bio</label>
-              <input name="bio" value="{{current_person.bio}}"><br><br>
+              <input name="bio" value="{{current_person.bio}}" maxlength="150"><br><br>
               <button>Save changes</button>
             </form>
           </div>
