@@ -170,8 +170,8 @@
 
 {% if is_my_profile %}
   <form id="upload" action="/upload_photo" method="post" enctype="multipart/form-data">
-      Upload a profile photo: <input name="image" type="file"><br>
-      <button>Upload</button>
+      Upload a profile photo: <input id="imgUpload" name="image" type="file"><br>
+      <button id="uploadBtn">Upload</button>
   </form>
   <br><br><br>
 {% endif %}

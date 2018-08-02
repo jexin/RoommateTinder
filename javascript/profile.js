@@ -25,6 +25,15 @@ window.onclick = function(event) {
     }
 }
 
+let upload = document.getElementById("uploadBtn");
+
+upload.addEventListener("click", e => {
+  if( document.getElementById("imgUpload").files.length == 0 ){
+      alert("no files selected");
+      e.preventDefault();
+  }
+});
+
 let genders = document.querySelector("#gender");
 let gender = document.querySelector(".gender");
 genders.value = gender.innerHTML;
