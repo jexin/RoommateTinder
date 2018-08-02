@@ -1,11 +1,12 @@
 // Get the modal
-var modal = document.getElementById('myModal');
+let modal = document.getElementById('myModal');
 
 // Get the button that opens the modal
-var btn = document.getElementById("edit");
+let btn = document.getElementById("edit");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+let span = document.getElementsByClassName("close")[0];
+
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
@@ -23,6 +24,15 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+let upload = document.getElementById("uploadBtn");
+
+upload.addEventListener("click", e => {
+  if( document.getElementById("imgUpload").files.length == 0 ){
+      alert("no files selected");
+      e.preventDefault();
+  }
+});
 
 let genders = document.querySelector("#gender");
 let gender = document.querySelector(".gender");

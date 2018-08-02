@@ -54,8 +54,9 @@
       <button id="filterbutton">Filter</button>
       </form>
       <p class="colorcode"><span style="color:red">RED</span> = waiting for like</p>
-      <p class="colorcode"><span style="color:green">GREEN</span> = match</p>
+      <p class="colorcode"><span style="color:green">GREEN</span> = matched</p>
       <p class="colorcode"><span style="color:#005792">BLUE</span> = people to like</p>
+      <p class="colorcode"><span style="color:yellow">YELLOW</span> = already liked</p>
     </div>
 
   <div id="right">
@@ -72,6 +73,14 @@
           </div>
           {% elif person in people_likes_person %}
           <div id = "likedRoomiesItem">
+            <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
+            <div class="info" id="name"><li>{{person.name}}</li></div>
+            <div class="info">{{person.year}} at {{person.college}}</div>
+            <div class="info">{{person.city}}, {{person.state}}</div>
+            <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
+          </div>
+          {% elif person in people_person_likes %}
+          <div id = "likeRoomiesItem">
             <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
             <div class="info" id="name"><li>{{person.name}}</li></div>
             <div class="info">{{person.year}} at {{person.college}}</div>

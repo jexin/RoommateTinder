@@ -40,6 +40,7 @@ body {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    border-radius: 0px;
 }
 
 /* Change the link color to #111 (black) on hover */
@@ -62,6 +63,18 @@ body {
   margin: 20px;
   padding: 0px;
   border: 2px solid #005792;
+  border-radius: 8px;
+  text-align: center;
+}
+
+
+#likeRoomiesItem {
+  width: 250px;
+  background-color: #f2fcff;
+  list-style-type: none;
+  margin: 20px;
+  padding: 0px;
+  border: 2px solid yellow;
   border-radius: 8px;
   text-align: center;
 }
