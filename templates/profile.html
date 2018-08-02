@@ -22,22 +22,18 @@
      <div>
        <img class="image" id="matchedRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
      </div>
-     <div class="clicked">liked</div>
    {% elif person in people_likes_person %}
      <div>
        <img class="image" id="likedRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
      </div>
-     <div class="clicked">noliked</div>
    {% elif person in people_person_likes %}
      <div>
        <img class="image" id="likeRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
      </div>
-     <div class="clicked">liked</div>
    {% else %}
      <div>
        <img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
      </div>
-     <div class="clicked">noliked</div>
    {% endif %}
 
   <div id="left">
