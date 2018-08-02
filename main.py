@@ -293,7 +293,7 @@ class MyMatches(webapp2.RequestHandler):
         current_person_likes = Like.query().filter(Like.liker_key == current_person.key).fetch()
         likes_current_person = Like.query().filter(Like.liked_key == current_person.key).fetch()
         mutual_likes = current_person_likes and likes_current_person
-        
+
         people_person_likes= []
         people_likes_person = []
         matches = []
