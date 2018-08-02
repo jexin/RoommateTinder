@@ -34,10 +34,16 @@
       <img class="image" id="likeRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
     </div>
   {% endif %}
-  <div id="right">
+  <div id="left">
     <h1 class="info" id="name">{{person.name}}</h1>
+    <div class="info">{{person.gender}}</div>
+    <br>
+    <div class="info">{{person.year}} at {{person.college}}</div>
+    <div class="info">{{person.city}}, {{person.state}}</div>
+    <div class="info">Bio: {{person.bio}}</div>
+    <br><br><br>
     {% if is_my_profile %}
-      <button id="edit" style="float:right" name="Edit">Edit Profile</button>
+      <button id="edit" style="float:left" name="Edit">Edit Profile</button>
       <form action="/edit" method="post">
         <div id="myModal" class="modal">
           <div class="modal-content">
@@ -148,17 +154,15 @@
     {% else %}
       <form action="/profile" method="post">
         <input type="hidden" name="viewed_profile_key" value="{{person.key.urlsafe()}}">
-        <button style="float:right" name="like">Like</button>
+        <button style="float:left" name="like">Like</button>
       </form>
     {% endif %}
-    <div class="info">Gender: {{person.gender}}</div>
-    <div class="info">Year: {{person.year}}</div>
-    <div class="info">College: {{person.college}}</div>
-    <div class="info">{{person.city}}, {{person.state}}</div>
+    <br>
+  </div>
+  <div id="right">
+    <div class="info" id="aboutme">ABOUT ME</div>
     <div class="info">Smoking: {{person.smoke}}</div>
     <div class="info">Favorite hobby: {{person.hobbies}}</div>
-    <div class="info">About me: {{person.bio}}</div>
-
     {% if is_my_profile %}
       <div class="info" style="display:block;">Email: {{person.email}}</div>
     {% elif person in matches %}
@@ -172,7 +176,7 @@
 
 {% if is_my_profile %}
   <form id="upload" action="/upload_photo" method="post" enctype="multipart/form-data">
-      Upload a profile photo: <input id="imgUpload" name="image" type="file"><br><br>
+      Upload profile photo: <input id="imgUpload" name="image" type="file"><br><br>
       <button id="uploadBtn">Upload</button>
   </form>
   <br><br><br>

@@ -2,6 +2,11 @@ body {
   background-color: #d5eeff;
   font-family: 'Playfair Display', serif;
 }
+
+h3 {
+  margin: 20px;
+}
+
 #navbar {
   margin:-8px -8px 5px -8px;
 }
@@ -29,38 +34,44 @@ body {
 
 /* Style the tab */
 .tab {
-    overflow: hidden;
-    text-align: center;
-
+  color: #005792;
+  overflow: hidden;
+  text-align: center;
 }
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
-    margin-top: 7px;
+    background-color: #005792;
+    margin-top: 10px;
     border: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     outline: none;
     cursor: pointer;
-    padding: 14px 16px;
+    padding: 10px 14px;
     transition: 0.3s;
-    font-size:12px;
+    font-size: 12px;
     margin-left: 40px
 }
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-    background-color: #ddd;
+    background-color: #00204a;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-    background-color: #ccc;
+    background-color: #00204a;
 }
 
+.tablinks {
+  color: white;
+}
 /* Style the tab content */
 .tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border-top: 1px solid #ccc;
+  display: none;
+  padding: 6px 12px;
+  border-top: 1px solid #00204a;
 }
 
 #logo {
@@ -98,7 +109,7 @@ body {
   margin: 20px 10px 10px 20px;
   padding: 0px;
   border: 2px solid #005792;
-  border-radius: 8px;
+  border-radius: 5px;
   text-align: center;
 }
 
@@ -130,15 +141,15 @@ body {
   height: 250px;
   object-fit: cover;
   padding: 0;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 a:hover, a:visited, a:link, a:active {
   background-color: #005792;
   color: white;
   padding: 7px 15px 7px 15px;
-  border-radius: 7px;
+  border-radius: 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
