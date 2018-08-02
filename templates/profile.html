@@ -154,9 +154,9 @@
         </div>
       </form>
     {% else %}
-      <form action="/profile" method="post" id="likeBtn">
+      <form action="/profile" method="post">
         <input type="hidden" name="viewed_profile_key" value="{{person.key.urlsafe()}}">
-        <button style="float:left" name="like">Like</button>
+        <button style="float:left" name="like" id="like">Like</button>
       </form>
     {% endif %}
     <br>
@@ -193,21 +193,4 @@
 
 </div>
 
-
-
-<!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCLJddXystpgO4qnhwmfgG8JzI4Yd4TOPY",
-    authDomain: "rofl-cssi.firebaseapp.com",
-    databaseURL: "https://rofl-cssi.firebaseio.com",
-    projectId: "rofl-cssi",
-    storageBucket: "rofl-cssi.appspot.com",
-    messagingSenderId: "803516191779"
-  };
-  firebase.initializeApp(config);
-</script> -->
-
-<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 <script src="/javascript/profile.js"></script>
