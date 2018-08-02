@@ -97,14 +97,13 @@ class ProfilePage(webapp2.RequestHandler): #has protection against the back butt
             if liker and not liker in people_likes_person:
                 people_likes_person.append(liker)
 
-        for like in mutual_likes:
-            liker = Person.query().filter(Person.key == like.liker_key).get()
-            if liker and not liker in matches:
-                matches.append(liker)
-            liked = Person.query().filter(Person.key == like.liked_key).get()
-            if liked and not liked in matches:
-                matches.append(liked)
-
+        for like in current_person_likes:
+            # Find likes where the current person is being liked by `like`
+            likes = Like.query().filter(Like.liker_key == like.liked_key).filter(Like.liked_key == current_person.key).fetch()
+            if likes:
+                mutual = Person.query().filter(Person.key == like.liked_key).get()
+                if not mutual in matches:
+                    matches.append(mutual)
         # 3. Render the response
         templateVars = {
             "current_person" : current_person,
@@ -260,13 +259,13 @@ class PotentialRoomies(webapp2.RequestHandler):
             if liker and not liker in people_likes_person:
                 people_likes_person.append(liker)
 
-        for like in mutual_likes:
-            liker = Person.query().filter(Person.key == like.liker_key).get()
-            if liker and not liker in matches:
-                matches.append(liker)
-            liked = Person.query().filter(Person.key == like.liked_key).get()
-            if liked and not liked in matches:
-                matches.append(liked)
+        for like in current_person_likes:
+            # Find likes where the current person is being liked by `like`
+            likes = Like.query().filter(Like.liker_key == like.liked_key).filter(Like.liked_key == current_person.key).fetch()
+            if likes:
+                mutual = Person.query().filter(Person.key == like.liked_key).get()
+                if not mutual in matches:
+                    matches.append(mutual)
         logout_url = users.create_logout_url("/")
 
         templateVars = {
@@ -294,7 +293,7 @@ class MyMatches(webapp2.RequestHandler):
         current_person_likes = Like.query().filter(Like.liker_key == current_person.key).fetch()
         likes_current_person = Like.query().filter(Like.liked_key == current_person.key).fetch()
         mutual_likes = current_person_likes and likes_current_person
-        logging.info(mutual_likes)
+        
         people_person_likes= []
         people_likes_person = []
         matches = []
