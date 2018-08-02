@@ -225,22 +225,22 @@ class PotentialRoomies(webapp2.RequestHandler):
         people = Person.query()
 
         if self.request.get("college_filter") == "on":
-            people = Person.query().filter(Person.college == current_person.college).fetch()
+            people = people.filter(Person.college == current_person.college)
         if self.request.get("year_filter") == "on":
-            people = Person.query().filter(Person.year == current_person.year).fetch()
+            people = people.filter(Person.year == current_person.year)
         if self.request.get("gender_filter") == "on":
             if current_person.gender != "Other":
-                people = Person.query().filter(Person.gender == current_person.gender).fetch()
-            else:
-                people = Person.query()
+                people = people.filter(Person.gender == current_person.gender)
         if self.request.get("city_filter") == "on":
-            people = Person.query().filter(Person.city == current_person.city).fetch()
+            people = people.filter(Person.city == current_person.city)
         if self.request.get("state_filter") == "on":
-            people = Person.query().filter(Person.state == current_person.state).fetch()
+            people = people.filter(Person.state == current_person.state)
         if self.request.get("smoke_filter") == "on":
-            people = Person.query().filter(Person.smoke == current_person.smoke).fetch()
+            people = people.filter(Person.smoke == current_person.smoke)
         if self.request.get("hobbies_filter") == "on":
-            people = Person.query().filter(Person.hobbies == current_person.hobbies).fetch()
+            people = people.filter(Person.hobbies == current_person.hobbies)
+
+        people = people.fetch()
         #3
         current_person_likes = Like.query().filter(Like.liker_key == current_person.key).fetch()
         likes_current_person = Like.query().filter(Like.liked_key == current_person.key).fetch()
