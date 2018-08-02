@@ -23,6 +23,15 @@ h3 {
     float: left;
 }
 
+#navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 0px;
+}
+
 #navbar #floatRight {
   float: right;
 }

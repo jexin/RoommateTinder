@@ -332,8 +332,10 @@ class About(webapp2.RequestHandler):
     def get(self):
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
+        logout_url = users.create_logout_url("/")
         templateVars = {
             "current_person" : current_person,
+            "logout_url" : logout_url,
         }
         template = env.get_template("templates/about.html")
         self.response.write(template.render(templateVars))
