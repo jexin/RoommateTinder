@@ -33,3 +33,13 @@ a:hover, a:visited, a:link, a:active {
   text-decoration: none;
   display: inline-block;
 }
+
+#createbutton {
+  background-color: #005792;
+  color: white;
+  padding: 7px 15px 7px 15px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 12px;
+  display: inline-block;
+}
