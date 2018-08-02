@@ -195,13 +195,23 @@ class PotentialRoomies(webapp2.RequestHandler):
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
         #2
-        if current_person.gender != "Other":
-            people = Person.query().filter(Person.gender == current_person.gender)
-        else:
-            people = Person.query()
-        people = people.filter(Person.college == current_person.college)
-        people = people.filter(Person.year == current_person.year).fetch()
+        # if current_person.gender != "Other":
+        #     people = Person.query().filter(Person.gender == current_person.gender)
+        # else:
+        #     people = Person.query()
+        # people = people.filter(Person.college == current_person.college)
+        # people = people.filter(Person.year == current_person.year).fetch()
+        people = Person.query()
 
+        if self.request.get("gender_filter") == "on":
+            if current_person.gender != "Other":
+                people = Person.query().filter(Person.gender == current_person.gender).fetch()
+            else:
+                people = Person.query()
+        if self.request.get("college_filter") == "on":
+            people = Person.query().filter(Person.college == current_person.college).fetch()
+        if self.request.get("year_filter") == "on":
+            people = Person.query().filter(Person.year == current_person.year).fetch()
         if self.request.get("city_filter") == "on":
             people = Person.query().filter(Person.city == current_person.city).fetch()
         if self.request.get("state_filter") == "on":
@@ -210,6 +220,7 @@ class PotentialRoomies(webapp2.RequestHandler):
             people = Person.query().filter(Person.smoke == current_person.smoke).fetch()
         if self.request.get("hobbies_filter") == "on":
             people = Person.query().filter(Person.hobbies == current_person.hobbies).fetch()
+
         #3
         current_person_likes = Like.query().filter(Like.liker_key == current_person.key).fetch()
         likes_current_person = Like.query().filter(Like.liked_key == current_person.key).fetch()
@@ -220,7 +231,6 @@ class PotentialRoomies(webapp2.RequestHandler):
         matches = []
 
         for like in current_person_likes:
-            logging.info(like)
             liked = Person.query().filter(Person.key == like.liked_key).get()
             if liked and not liked in people_person_likes:
                 people_person_likes.append(liked)
