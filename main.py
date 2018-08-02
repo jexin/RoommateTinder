@@ -82,7 +82,6 @@ class ProfilePage(webapp2.RequestHandler):
         matches = []
 
         for like in current_person_likes:
-            logging.info(like)
             liked = Person.query().filter(Person.key == like.liked_key).get()
             if liked and not liked in people_person_likes:
                 people_person_likes.append(liked)
@@ -307,6 +306,16 @@ class MyMatches(webapp2.RequestHandler):
         template = env.get_template("templates/mymatches.html")
         self.response.write(template.render(templateVars))
 
+class About(webapp2.RequestHandler):
+    def get(self):
+        current_user = users.get_current_user()
+        current_person = Person.query().filter(Person.email == current_user.email()).get()
+        templateVars = {
+            "current_person" : current_person,
+        }
+        template = env.get_template("templates/about.html")
+        self.response.write(template.render(templateVars))
+
 app = webapp2.WSGIApplication([
     ("/", MainPage),
     ("/profile", ProfilePage),
@@ -315,5 +324,6 @@ app = webapp2.WSGIApplication([
     ("/upload_photo", PhotoUploadHandler),
     ("/photo", PhotoHandler),
     ("/potentialroomies", PotentialRoomies),
-    ("/mymatches", MyMatches)
+    ("/mymatches", MyMatches),
+    ("/about", About)
 ], debug=True)
