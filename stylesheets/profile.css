@@ -7,15 +7,15 @@ body {
 }
 
 #navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #005792;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #005792;
 }
 
 #navbar li {
-    float: left;
+  float: left;
 }
 
 #logo {
@@ -26,14 +26,13 @@ body {
 }
 
 #navbar li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
 #navbar li a:hover {
     background-color: #00204a;
 }
@@ -43,8 +42,8 @@ body {
 }
 
 @media screen and (max-width: 600px){
-    #navbar li,
-    #navbar #floatRight {float: none;}
+  #navbar li,
+  #navbar #floatRight {float: none;}
 }
 
 #content {
@@ -52,12 +51,12 @@ body {
   flex-direction: row;
 }
 .image {
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   object-fit: cover;
   border: 2px solid #005792;
-  border-radius: 8px;
-  margin: 20px;
+  border-radius: 5px;
+  margin: 30px;
   flex:1 4 200px;
 }
 
@@ -72,30 +71,34 @@ body {
 #matchedRoomiesItem {
   border: 2px solid green;
 }
-#right {
-  padding-left: 10px;
+#left {
+  margin: 10px;
   flex:4 1 auto;
 }
-#right h1 {
+#left h1 {
   margin-top: 15px;
 }
 
-#right button {
+#left button {
     background-color: #005792;
-    border-radius: 4px;
+    border-radius: 5px;
     border: none;
     color: white;
-    margin-right: 10px;
-    padding: 10px 15px;
+    margin-top: 40px;
+    padding: 8px 18px;
     text-align: center;
     text-decoration: none;
     font-size: 14px;
+    display: inline-block;
 
 }
-
-#right button:hover {
+#left button:hover {
     background-color: #00204a;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#right {
+  margin: 30px 30px 30px 50px;
+  flex: 4 1 auto;
 }
 
 .modal {
@@ -138,7 +141,7 @@ body {
 }
 
 #name {
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .info {
@@ -147,8 +150,26 @@ body {
   color: black;
 }
 
+#aboutme {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 #upload {
-  margin: 20px;
+  font-size: 15px;
+  margin: 0 30px 10px 32px;
+}
+
+#uploadBtn {
+  background-color: #005792;
+  color: white;
+  padding: 7px 15px 7px 15px;
+  margin-left: 110px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 12px;
+  display: inline-block;
 }
 
 #cheatCode {
