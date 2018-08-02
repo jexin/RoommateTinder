@@ -69,36 +69,15 @@ body {
 
 
 #likeRoomiesItem {
-  width: 250px;
-  background-color: #f2fcff;
-  list-style-type: none;
-  margin: 20px 10px 10px 20px;
-  padding: 0px;
   border: 2px solid yellow;
-  border-radius: 8px;
-  text-align: center;
 }
 
 #likedRoomiesItem {
-  width: 250px;
-  background-color: #f2fcff;
-  list-style-type: none;
-  margin: 20px 10px 10px 20px;
-  padding: 0px;
   border: 2px solid red;
-  border-radius: 8px;
-  text-align: center;
 }
 
 #matchedRoomiesItem {
-  width: 250px;
-  background-color: #f2fcff;
-  list-style-type: none;
-  margin: 20px 10px 10px 20px;
-  padding: 0px;
   border: 2px solid green;
-  border-radius: 8px;
-  text-align: center;
 }
 
 #name {
