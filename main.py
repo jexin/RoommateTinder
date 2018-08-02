@@ -44,13 +44,10 @@ class MainPage(webapp2.RequestHandler):
             current_person = None
         # 3. Render the response
         logout_url = users.create_logout_url("/")
-        #print(repr(current_person))
-        #print(repr(people))
+
         if current_person:
-            #print("took true branch")
             login_url = users.create_login_url("/")
         else:
-            #print("took false branch")
             login_url = users.create_login_url("/")
         print(login_url)
         templateVars = {
@@ -208,22 +205,6 @@ class PotentialRoomies(webapp2.RequestHandler):
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
         #2
-<<<<<<< HEAD
-        if current_person.gender != "Other":
-            people = Person.query().filter(Person.gender == current_person.gender)
-        else:
-            people = Person.query()
-        people = people.filter(Person.college == current_person.college)
-        people = people.filter(Person.year == current_person.year).fetch()
-        print(people)
-
-=======
-        # if current_person.gender != "Other":
-        #     people = Person.query().filter(Person.gender == current_person.gender)
-        # else:
-        #     people = Person.query()
-        # people = people.filter(Person.college == current_person.college)
-        # people = people.filter(Person.year == current_person.year).fetch()
         people = Person.query()
 
         if self.request.get("gender_filter") == "on":
@@ -235,7 +216,6 @@ class PotentialRoomies(webapp2.RequestHandler):
             people = Person.query().filter(Person.college == current_person.college).fetch()
         if self.request.get("year_filter") == "on":
             people = Person.query().filter(Person.year == current_person.year).fetch()
->>>>>>> ad89c2c718619a88380fae8b4f83988498eb5133
         if self.request.get("city_filter") == "on":
             people = Person.query().filter(Person.city == current_person.city).fetch()
         if self.request.get("state_filter") == "on":
@@ -244,7 +224,6 @@ class PotentialRoomies(webapp2.RequestHandler):
             people = Person.query().filter(Person.smoke == current_person.smoke).fetch()
         if self.request.get("hobbies_filter") == "on":
             people = Person.query().filter(Person.hobbies == current_person.hobbies).fetch()
-
         #3
         current_person_likes = Like.query().filter(Like.liker_key == current_person.key).fetch()
         likes_current_person = Like.query().filter(Like.liked_key == current_person.key).fetch()
@@ -290,7 +269,6 @@ class MyMatches(webapp2.RequestHandler):
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
         #2
-        #filters Likes
         current_person_likes = Like.query().filter(Like.liker_key == current_person.key).fetch()
         likes_current_person = Like.query().filter(Like.liked_key == current_person.key).fetch()
         mutual_likes = current_person_likes and likes_current_person
