@@ -1,8 +1,47 @@
+$('#college_filter').click(function(e){
+	if (e.target.checked) {
+  	localStorage.checked_college = "checked"; //string is true
+  } else {
+  	localStorage.checked_college = ""; //empty string is false
+  }
+})
+$( document ).ready(function() {
+  if(localStorage.checked_college != undefined) {
+    document.querySelector('#college_filter').checked = localStorage.checked_college;
+  }
+});
+
+$('#year_filter').click(function(e){
+	if (e.target.checked) {
+  	localStorage.checked_year = "checked";
+  } else {
+  	localStorage.checked_year = "";
+  }
+})
+$( document ).ready(function() {
+  if(localStorage.checked_year != undefined) {
+    document.querySelector('#year_filter').checked = localStorage.checked_year;
+	}
+});
+
+$('#gender_filter').click(function(e){
+	if (e.target.checked) {
+  	localStorage.checked_gender = "checked";
+  } else {
+  	localStorage.checked_gender = "";
+  }
+})
+$( document ).ready(function() {
+  if(localStorage.checked_gender != undefined) {
+    document.querySelector('#gender_filter').checked = localStorage.checked_gender;
+	}
+});
+
 $('#city_filter').click(function(e){
 	if (e.target.checked) {
-  	localStorage.checked_city = "checked"; //string is true
+  	localStorage.checked_city = "checked";
   } else {
-  	localStorage.checked_city = ""; //empty string is false
+  	localStorage.checked_city = "";
   }
 })
 $( document ).ready(function() {

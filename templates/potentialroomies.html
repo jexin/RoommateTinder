@@ -27,6 +27,18 @@
         <h4 class="filter">Filter by:</h4>
       </div>
       <div class="filter">
+        <input id="college_filter" name="college_filter" type="checkbox" checked="true">
+        <label for="college">College</label>
+      </div>
+      <div class="filter">
+        <input id="year_filter" name="year_filter" type="checkbox" checked>
+        <label for="year">Year</label>
+      </div>
+      <div class="filter">
+        <input id="gender_filter" name="gender_filter" type="checkbox" checked>
+        <label for="gender">Gender</label>
+      </div>
+      <div class="filter">
         <input id="city_filter" name="city_filter" type="checkbox">
         <label for="city">City</label>
       </div>
@@ -57,7 +69,7 @@
           <p>We're sorry! There are no people of your same gender, college, and year in our database right now.</p>
         {% elif current_person.key !=  person.key %}
           {% if person in matches %}
-          <div id = "matchedRoomiesItem">
+          <div class="roomiesItem" id = "matchedRoomiesItem">
             <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
             <div class="info" id="name"><li>{{person.name}}</li></div>
             <div class="info">{{person.year}} at {{person.college}}</div>
@@ -65,7 +77,7 @@
             <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
           </div>
           {% elif person in people_likes_person %}
-          <div id = "likedRoomiesItem">
+          <div class="roomiesItem" id = "likedRoomiesItem">
             <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
             <div class="info" id="name"><li>{{person.name}}</li></div>
             <div class="info">{{person.year}} at {{person.college}}</div>
@@ -73,7 +85,7 @@
             <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
           </div>
           {% elif person in people_person_likes %}
-          <div id = "likeRoomiesItem">
+          <div class="roomiesItem" id = "likeRoomiesItem">
             <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
             <div class="info" id="name"><li>{{person.name}}</li></div>
             <div class="info">{{person.year}} at {{person.college}}</div>
@@ -81,7 +93,7 @@
             <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
           </div>
           {% else %}
-          <div id="roomiesItem">
+          <div class="roomiesItem">
             <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
             <div class="info" id="name"><li>{{person.name}}</li></div>
             <div class="info">{{person.year}} at {{person.college}}</div>

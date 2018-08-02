@@ -17,9 +17,23 @@
 <title>Profile Page for {{person.name}}</title>
 
 <div id="content">
-  <div>
-    <img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
-  </div>
+  {% if person in matches %}
+    <div>
+      <img class="image" id="matchedRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
+    </div>
+  {% elif person in people_likes_person %}
+    <div>
+      <img class="image" id="likedRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
+    </div>
+  {% elif person in people_person_likes %}
+    <div>
+      <img class="image" id="likeRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
+    </div>
+  {% else %}
+    <div>
+      <img class="image" id="likeRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
+    </div>
+  {% endif %}
   <div id="right">
     <h1 class="info" id="name">{{person.name}}</h1>
     {% if is_my_profile %}

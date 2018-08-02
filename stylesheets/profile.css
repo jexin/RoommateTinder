@@ -60,6 +60,18 @@ body {
   margin: 20px;
   flex:1 4 200px;
 }
+
+#likeRoomiesItem {
+  border: 2px solid yellow;
+}
+
+#likedRoomiesItem {
+  border: 2px solid red;
+}
+
+#matchedRoomiesItem {
+  border: 2px solid green;
+}
 #right {
   padding-left: 10px;
   flex:4 1 auto;

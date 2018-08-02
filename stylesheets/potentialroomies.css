@@ -56,11 +56,11 @@ body {
   margin:0;
 }
 
-#roomiesItem {
+.roomiesItem {
   width: 250px;
   background-color: #f2fcff;
   list-style-type: none;
-  margin: 20px;
+  margin: 20px 10px 10px 20px;
   padding: 0px;
   border: 2px solid #005792;
   border-radius: 8px;
@@ -69,36 +69,15 @@ body {
 
 
 #likeRoomiesItem {
-  width: 250px;
-  background-color: #f2fcff;
-  list-style-type: none;
-  margin: 20px;
-  padding: 0px;
   border: 2px solid yellow;
-  border-radius: 8px;
-  text-align: center;
 }
 
 #likedRoomiesItem {
-  width: 250px;
-  background-color: #f2fcff;
-  list-style-type: none;
-  margin: 20px;
-  padding: 0px;
   border: 2px solid red;
-  border-radius: 8px;
-  text-align: center;
 }
 
 #matchedRoomiesItem {
-  width: 250px;
-  background-color: #f2fcff;
-  list-style-type: none;
-  margin: 20px;
-  padding: 0px;
   border: 2px solid green;
-  border-radius: 8px;
-  text-align: center;
 }
 
 #name {
@@ -141,11 +120,11 @@ a:hover, a:visited, a:link, a:active {
 
  .filter {
    font-size: 15px;
-   margin: 20px;
+   margin: 15px;
  }
 
  #filterbutton {
-   margin: 0px 0px 20px 20px;
+   margin: 0px 0px 15px 20px;
    background-color: #005792;
    color: white;
    padding: 7px 15px 7px 15px;
