@@ -5,6 +5,7 @@ body {
 
 header {
   margin: 20px;
+  text-align: center;
 }
 
 #navbar {
@@ -140,4 +141,8 @@ a:hover, a:visited, a:link, a:active {
 .colorcode {
   font-size: 15px;
   margin: 20px;
+}
+
+#none {
+  margin: 30px;
 }

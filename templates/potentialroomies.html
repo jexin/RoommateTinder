@@ -19,7 +19,7 @@
   </ul>
 </div>
 
-<header><h2>Potential Roommates</h2></header>
+<header><h2>Your Potential Roommates</h2></header>
 
 <div class="container">
   <div id="left">
@@ -49,7 +49,7 @@
       </div>
       <div class="filter">
         <input id="smoking_filter" name="smoking_filter" type="checkbox">
-        <label for="smoking">Smoking</label>
+        <label for="smoking">Smoking Habits</label>
       </div>
       <div class="filter">
         <input id="hobbies_filter" name="hobbies_filter" type="checkbox">
@@ -59,7 +59,7 @@
       </form>
       <p class="colorcode"><span style="color:#005792">BLUE</span> = Matched</p>
       <p class="colorcode"><span style="color:pink">PINK</span> = Liked you</p>
-      <p class="colorcode"><span style="color:#eedd82">YELLOW</span> = Liked by you</p>
+      <p class="colorcode"><span style="color:#ffd700">YELLOW</span> = Liked by you</p>
       <p class="colorcode"><span style="color:gray">GRAY</span> = Others</p>
     </div>
 
@@ -67,7 +67,7 @@
     <ul id="roomiesList">
       {% for person in people %}
         {% if people == [current_person] %}
-          <p>We're sorry! There are no people of your same gender, college, and year in our database right now.</p>
+          <p id="none">We're sorry! There are no current matches right now.</p>
         {% elif current_person.key !=  person.key %}
           {% if person in matches %}
           <div class="roomiesItem" id = "matchedRoomiesItem">
