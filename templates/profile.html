@@ -158,6 +158,12 @@
         <input type="hidden" name="viewed_profile_key" value="{{person.key.urlsafe()}}">
         <button style="float:left" name="like" id="like">Like</button>
       </form>
+      <!-- {% if not person in matches or not person in people_person_likes %}
+        <form action="/profile" method="post">
+          <input type="hidden" name="viewed_profile_key" value="{{person.key.urlsafe()}}">
+          <button style="float:left" name="like" id="like">Like</button>
+        </form>
+      {% endif %} -->
     {% endif %}
     <br>
   </div>
