@@ -64,7 +64,7 @@
       {% for person in people %}
         {% if current_person.key !=  person.key %}
           {% if person in matches %}
-          <div id = "matchedRoomiesItem">
+          <div class="roomiesItem" id = "matchedRoomiesItem">
             <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
             <div class="info" id="name"><li>{{person.name}}</li></div>
             <div class="info">{{person.year}} at {{person.college}}</div>
@@ -72,7 +72,7 @@
             <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
           </div>
           {% elif person in people_likes_person %}
-          <div id = "likedRoomiesItem">
+          <div class="roomiesItem" id = "likedRoomiesItem">
             <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
             <div class="info" id="name"><li>{{person.name}}</li></div>
             <div class="info">{{person.year}} at {{person.college}}</div>
@@ -80,7 +80,7 @@
             <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
           </div>
           {% elif person in people_person_likes %}
-          <div id = "likeRoomiesItem">
+          <div class="roomiesItem" id = "likeRoomiesItem">
             <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
             <div class="info" id="name"><li>{{person.name}}</li></div>
             <div class="info">{{person.year}} at {{person.college}}</div>
@@ -88,7 +88,7 @@
             <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
           </div>
           {% else %}
-          <div id="roomiesItem">
+          <div class="roomiesItem">
             <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
             <div class="info" id="name"><li>{{person.name}}</li></div>
             <div class="info">{{person.year}} at {{person.college}}</div>
