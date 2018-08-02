@@ -16,6 +16,7 @@ class Person(ndb.Model):
     city = ndb.StringProperty()
     state = ndb.StringProperty()
     bio = ndb.StringProperty()
+    sleep = ndb.StringProperty()
     smoke = ndb.StringProperty()
     hobbies = ndb.StringProperty()
     photo = ndb.BlobProperty()
@@ -147,13 +148,14 @@ class CreateHandler(webapp2.RequestHandler):
         city = self.request.get("city")
         state = self.request.get("state")
         bio = self.request.get("bio")
+        sleep = self.request.get("sleep")
         smoke = self.request.get("smoke")
         hobbies = self.request.get("hobbies")
         current_user = users.get_current_user() #step1
         email = current_user.email() #step2
 
         # 2. Read/write from the database
-        person = Person(name=name, gender=gender, college=college, year=year, city=city, state=state, bio=bio, email=email, smoke=smoke, hobbies=hobbies)
+        person = Person(name=name, gender=gender, college=college, year=year, city=city, state=state, bio=bio, email=email, sleep=sleep, smoke=smoke, hobbies=hobbies)
         person.put()
         # 3. Render the response
         time.sleep(2)#gives it time to render
@@ -171,6 +173,7 @@ class EditHandler(webapp2.RequestHandler):
         city = self.request.get("city")
         state = self.request.get("state")
         bio = self.request.get("bio")
+        sleep = self.request.get("sleep")
         smoke = self.request.get("smoke")
         hobbies = self.request.get("hobbies")
 
@@ -181,6 +184,7 @@ class EditHandler(webapp2.RequestHandler):
         person.city = city
         person.state = state
         person.bio = bio
+        person.sleep = sleep
         person.smoke = smoke
         person.hobbies = hobbies
         person.put()
@@ -234,6 +238,8 @@ class PotentialRoomies(webapp2.RequestHandler):
             people = people.filter(Person.city == current_person.city)
         if self.request.get("state_filter") == "on":
             people = people.filter(Person.state == current_person.state)
+        if self.request.get("sleep_filter") == "on":
+            people = people.filter(Person.sleep == current_person.sleep)
         if self.request.get("smoke_filter") == "on":
             people = people.filter(Person.smoke == current_person.smoke)
         if self.request.get("hobbies_filter") == "on":
@@ -293,7 +299,7 @@ class MyMatches(webapp2.RequestHandler):
         current_person_likes = Like.query().filter(Like.liker_key == current_person.key).fetch()
         likes_current_person = Like.query().filter(Like.liked_key == current_person.key).fetch()
         mutual_likes = current_person_likes and likes_current_person
-        
+
         people_person_likes= []
         people_likes_person = []
         matches = []

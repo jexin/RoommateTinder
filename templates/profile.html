@@ -57,8 +57,7 @@
             <form action="/create" method="post">
               <br>
               <label>Name:</label>
-              <input name="name" value="{{current_person.name}}" maxlength="20"><br>
-              <br>
+              <input name="name" value="{{current_person.name}}" maxlength="20">
               <label>Gender:</label>
               <select id="gender" name="gender">
                 <option value="Female">Female</option>
@@ -68,8 +67,7 @@
               <br>
               <br>
               <label>College:</label>
-              <input name="college" value="{{current_person.college}}" maxlength="50"><br>
-              <br>
+              <input name="college" value="{{current_person.college}}" maxlength="50">
               <label>Year</label>
               <select id="year" name="year">
                 <option value="Freshman">Freshman</option>
@@ -78,9 +76,10 @@
                 <option value="Senior">Senior</option>
               </select>
               <br><br>
-              <label>City</label>
-              <input name="city" value="{{current_person.city}}" maxlength="30"><br>
-              <br>
+              <label>Where are you from?</label>
+              <br><br>
+              <label>City (print full name)</label>
+              <input name="city" value="{{current_person.city}}" maxlength="30">
               <label>State</label>
               <select id="state" name="state">
               	<option value="AL">Alabama</option>
@@ -136,11 +135,8 @@
               	<option value="WY">Wyoming</option>
               </select>
               <br><br>
-              <label>Do you smoke regularly? </label>
-              <select id="smoke" name="smoke">
-                <option value="No">No</option>
-                <option value="Yes">Yes</option>
-              </select>
+              <label>More about you:</label>
+              <br><br>
               <label>Select your favorite hobby: </label>
               <select id="hobbies" name="hobbies">
                 <option value="Sports">Sports</option>
@@ -148,6 +144,18 @@
                 <option value="Coding">Coding</option>
                 <option value="Watching Netflix">Watching Netflix</option>
                 <option value="Being with friends and family">Being with friends and family</option>
+              </select>
+              <br><br>
+              <label>Sleep habits: </label>
+              <select name="sleep" required="required">
+                <option value="morning">Early bird</option>
+                <option value="night">Night owl</option>
+              </select>
+              <br><br>
+              <label>Do you smoke regularly? </label>
+              <select id="smoke" name="smoke">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
               </select>
               <br><br>
               <label>Short Bio</label>
@@ -173,8 +181,9 @@
   </div>
   <div id="right">
     <div class="info" id="aboutme">ABOUT ME</div>
-    <div class="info">Smoking: {{person.smoke}}</div>
     <div class="info">Favorite hobby: {{person.hobbies}}</div>
+    <div class="info">Sleeping habits: {{person.sleep}}</div>
+    <div class="info">Smoking: {{person.smoke}}</div>
     {% if is_my_profile %}
       <div class="info" style="display:block;">Email: {{person.email}}</div>
     {% elif person in matches %}

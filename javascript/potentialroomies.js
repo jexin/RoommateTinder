@@ -59,6 +59,17 @@ $( document ).ready(function() {
 	document.querySelector('#state_filter').checked = localStorage.checked_state;
 });
 
+$('#sleeping_filter').click(function(e){
+	if (e.target.checked) {
+  	localStorage.checked_sleeping = "checked";
+  } else {
+  	localStorage.checked_sleeping = "";
+  }
+})
+$( document ).ready(function() {
+	document.querySelector('#sleeping_filter').checked = localStorage.checked_sleeping;
+});
+
 $('#smoking_filter').click(function(e){
 	if (e.target.checked) {
   	localStorage.checked_smoking = "checked";
