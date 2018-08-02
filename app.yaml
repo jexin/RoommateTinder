@@ -7,8 +7,8 @@ handlers:
   static_dir: javascript
 - url: /stylesheets
   static_dir: stylesheets
-- url: /images
-  static_dir: images
+- url: /aboutus
+  static_dir: aboutus
 - url: /.*
   script: main.app
   secure: always
