@@ -25,7 +25,7 @@
     <form action="/create" method="post">
       <br>
       <label>Name:</label>
-      <input name="name"><br>
+      <input name="name" maxlength="20"><br>
       <br>
       <label>Gender:</label>
       <select name="gender" id="selectgender">
@@ -36,7 +36,7 @@
       <br>
       <br>
       <label>College:</label>
-      <input name="college"><br>
+      <input name="college" maxlength="50"><br>
       <br>
       <label>Year</label>
       <select name="year" id="selectyear">
@@ -47,7 +47,7 @@
       </select>
       <br><br>
       <label>City</label>
-      <input name="city"><br>
+      <input name="city" maxlength="30"><br>
       <br>
       <label>State</label>
       <select name="state" id="selectstate">
@@ -119,7 +119,7 @@
       </select>
       <br><br>
       <label>Short Bio: </label>
-      <input name="bio">
+      <input name="bio" maxlength="150">
       <button>Create Profile</button>
     </form>
     <br><br>

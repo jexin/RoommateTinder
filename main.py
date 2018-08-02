@@ -205,6 +205,7 @@ class PotentialRoomies(webapp2.RequestHandler):
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
         #2
+
         people = Person.query()
 
         if self.request.get("college_filter") == "on":
