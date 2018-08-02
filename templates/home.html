@@ -25,8 +25,7 @@
     <form action="/create" method="post">
       <br>
       <label>Name:</label>
-      <input name="name" maxlength="20" required="required"><br>
-      <br>
+      <input name="name" maxlength="20" required="required">
       <label>Gender:</label>
       <select name="gender" id="selectgender" required="required">
         <option value="Female">Female</option>
@@ -36,8 +35,7 @@
       <br>
       <br>
       <label>College:</label>
-      <input name="college" maxlength="50" required="required"><br>
-      <br>
+      <input name="college" maxlength="50" required="required">
       <label>Year</label>
       <select name="year" id="selectyear" required="required">
         <option value="Freshman" selected>Freshman</option>
@@ -46,9 +44,10 @@
         <option value="Senior">Senior</option>
       </select>
       <br><br>
-      <label>City</label>
-      <input name="city" maxlength="30" required="required"><br>
-      <br>
+      <label>Where are you from:</label>
+      <br><br>
+      <label>City (print full name)</label>
+      <input name="city" maxlength="30" required="required">
       <label>State</label>
       <select name="state" id="selectstate" required="required">
       	<option value="AL">Alabama</option>
@@ -104,11 +103,14 @@
       	<option value="WY">Wyoming</option>
       </select>
       <br><br>
+      <label>More about you:</label>
+      <br><br>
       <label>Do you smoke regularly? </label>
       <select name="smoke" required="required">
         <option value="No">No</option>
         <option value="Yes">Yes</option>
       </select>
+      <br><br>
       <label>Select your favorite hobby: </label>
       <select name="hobbies" required="required">
         <option value="Sports">Sports</option>
@@ -120,7 +122,8 @@
       <br><br>
       <label>Short Bio: </label>
       <input name="bio" maxlength="150" required="required">
-      <button>Create Profile</button>
+      <br><br>
+      <button id="createbutton">Create Profile</button>
     </form>
     <br><br>
   {% elif current_user and current_person %}
@@ -129,5 +132,4 @@
         <button>Go to Main</button>
     </form>
   {% endif %}
-
 </body>
