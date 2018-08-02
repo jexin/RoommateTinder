@@ -201,6 +201,7 @@ class PotentialRoomies(webapp2.RequestHandler):
             people = Person.query()
         people = people.filter(Person.college == current_person.college)
         people = people.filter(Person.year == current_person.year).fetch()
+        print(people)
 
         if self.request.get("city_filter") == "on":
             people = Person.query().filter(Person.city == current_person.city).fetch()

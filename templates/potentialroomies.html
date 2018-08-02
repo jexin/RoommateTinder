@@ -50,7 +50,9 @@
   <div id="right">
     <ul id="roomiesList">
       {% for person in people %}
-        {% if current_person.key !=  person.key %}
+        {% if people == [current_person] %}
+          <p>We're sorry! There are no people of your same gender, college, and year in our database right now.</p>
+        {% elif current_person.key !=  person.key %}
           {% if person in matches %}
           <div id = "matchedRoomiesItem">
             <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
