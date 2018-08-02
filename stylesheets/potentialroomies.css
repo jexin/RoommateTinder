@@ -141,11 +141,11 @@ a:hover, a:visited, a:link, a:active {
 
  .filter {
    font-size: 15px;
-   margin: 20px;
+   margin: 15px;
  }
 
  #filterbutton {
-   margin: 0px 0px 20px 20px;
+   margin: 0px 0px 15px 20px;
    background-color: #005792;
    color: white;
    padding: 7px 15px 7px 15px;
