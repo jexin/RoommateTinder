@@ -67,6 +67,18 @@ body {
   text-align: center;
 }
 
+
+#likeRoomiesItem {
+  width: 250px;
+  background-color: #f2fcff;
+  list-style-type: none;
+  margin: 20px;
+  padding: 0px;
+  border: 2px solid yellow;
+  border-radius: 8px;
+  text-align: center;
+}
+
 #likedRoomiesItem {
   width: 250px;
   background-color: #f2fcff;
