@@ -117,21 +117,21 @@ h3 {
   list-style-type: none;
   margin: 20px 10px 10px 20px;
   padding: 0px;
-  border: 4px solid gray;
+  border: 2px solid gray;
   border-radius: 5px;
   text-align: center;
 }
 
 #likeRoomiesItem {
-  border: 4px solid #eedd82;
+  border: 2px solid #eedd82;
 }
 
 #likedRoomiesItem {
-  border: 4px solid pink;
+  border: 2px solid pink;
 }
 
 #matchedRoomiesItem {
-  border: 4px solid #005792;
+  border: 2px solid #005792;
 }
 
 #name {
