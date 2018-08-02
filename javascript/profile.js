@@ -54,5 +54,18 @@ if (btn.innerHTML == "Edit Profile") {
   hobbyes.value = hobbies.innerHTML;
 }
 else {
+  let clicked = document.querySelector(".clicked");
 
+  let form = document.querySelector("#likeBtn");
+  btn.addEventListener('click', e => {
+    clicked.innerHTML = "liked";
+    btn.disabled = true;
+    btn.style.backgroundColor = "#ccc";
+    form.submit();
+  });
+
+  if (clicked.innerHTML == "liked") {
+    btn.disabled = true;
+    btn.style.backgroundColor = "#ccc";
+  }
 }

@@ -19,22 +19,27 @@
 
 <div id="content">
   {% if person in matches %}
-    <div>
-      <img class="image" id="matchedRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
-    </div>
-  {% elif person in people_likes_person %}
-    <div>
-      <img class="image" id="likedRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
-    </div>
-  {% elif person in people_person_likes %}
-    <div>
-      <img class="image" id="likeRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
-    </div>
-  {% else %}
-    <div>
-      <img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
-    </div>
-  {% endif %}
+     <div>
+       <img class="image" id="matchedRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
+     </div>
+     <div class="clicked">liked</div>
+   {% elif person in people_likes_person %}
+     <div>
+       <img class="image" id="likedRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
+     </div>
+     <div class="clicked">noliked</div>
+   {% elif person in people_person_likes %}
+     <div>
+       <img class="image" id="likeRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
+     </div>
+     <div class="clicked">liked</div>
+   {% else %}
+     <div>
+       <img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
+     </div>
+     <div class="clicked">noliked</div>
+   {% endif %}
+
   <div id="left">
     <h1 class="info" id="name">{{person.name}}</h1>
     <div class="info">{{person.gender}}</div>
@@ -191,11 +196,7 @@
   <div class="hobbies">{{person.hobbies}}</div>
 
 </div>
-<!-- {% if person in matches or people_person_likes %}
-  <div class="clicked">liked</div>
-{% else %}
-  <div class="clicked">noliked</div>
-{% endif %} -->
+
 
 
 <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>

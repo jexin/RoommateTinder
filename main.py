@@ -108,6 +108,8 @@ class ProfilePage(webapp2.RequestHandler): #has protection against the back butt
         # 3. Render the response
         templateVars = {
             "current_person" : current_person,
+            "people_person_likes" : people_person_likes,
+            "people_likes_person" : people_likes_person,
             "person" : viewed_person,
             "is_my_profile" : is_my_profile,
             "logout_url" : logout_url,
