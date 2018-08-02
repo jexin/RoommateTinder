@@ -6,6 +6,7 @@
   <ul>
     <li id="logo">ROFL</li>
     <li><a href="/potentialroomies">Home</a></li>
+    <li><a href="/about">About Us</a></li>
     <li id="floatRight">
         <a href={{logout_url}}>Log out</a>
     </li>
@@ -18,22 +19,27 @@
 
 <div id="content">
   {% if person in matches %}
-    <div>
-      <img class="image" id="matchedRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
-    </div>
-  {% elif person in people_likes_person %}
-    <div>
-      <img class="image" id="likedRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
-    </div>
-  {% elif person in people_person_likes %}
-    <div>
-      <img class="image" id="likeRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
-    </div>
-  {% else %}
-    <div>
-      <img class="image" id="likeRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
-    </div>
-  {% endif %}
+     <div>
+       <img class="image" id="matchedRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
+     </div>
+     <div class="clicked">liked</div>
+   {% elif person in people_likes_person %}
+     <div>
+       <img class="image" id="likedRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
+     </div>
+     <div class="clicked">noliked</div>
+   {% elif person in people_person_likes %}
+     <div>
+       <img class="image" id="likeRoomiesItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
+     </div>
+     <div class="clicked">liked</div>
+   {% else %}
+     <div>
+       <img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
+     </div>
+     <div class="clicked">noliked</div>
+   {% endif %}
+
   <div id="left">
     <h1 class="info" id="name">{{person.name}}</h1>
     <div class="info">{{person.gender}}</div>
@@ -152,7 +158,7 @@
         </div>
       </form>
     {% else %}
-      <form action="/profile" method="post" id="likeform">
+      <form action="/profile" method="post">
         <input type="hidden" name="viewed_profile_key" value="{{person.key.urlsafe()}}">
         <button style="float:left" name="like" id="like">Like</button>
       </form>
@@ -188,6 +194,7 @@
   <div class="state">{{person.state}}</div>
   <div class="smoke">{{person.smoke}}</div>
   <div class="hobbies">{{person.hobbies}}</div>
+
 </div>
 
 <script src="/javascript/profile.js"></script>
