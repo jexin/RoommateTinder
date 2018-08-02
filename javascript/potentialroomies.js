@@ -21,6 +21,7 @@ $('#year_filter').click(function(e){
 $( document ).ready(function() {
   if(localStorage.checked_year != undefined) {
     document.querySelector('#year_filter').checked = localStorage.checked_year;
+	}
 });
 
 $('#gender_filter').click(function(e){
@@ -33,6 +34,7 @@ $('#gender_filter').click(function(e){
 $( document ).ready(function() {
   if(localStorage.checked_gender != undefined) {
     document.querySelector('#gender_filter').checked = localStorage.checked_gender;
+	}
 });
 
 $('#city_filter').click(function(e){
