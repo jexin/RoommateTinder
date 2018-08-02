@@ -207,15 +207,15 @@ class PotentialRoomies(webapp2.RequestHandler):
         #2
         people = Person.query()
 
+        if self.request.get("college_filter") == "on":
+            people = Person.query().filter(Person.college == current_person.college).fetch()
+        if self.request.get("year_filter") == "on":
+            people = Person.query().filter(Person.year == current_person.year).fetch()
         if self.request.get("gender_filter") == "on":
             if current_person.gender != "Other":
                 people = Person.query().filter(Person.gender == current_person.gender).fetch()
             else:
                 people = Person.query()
-        if self.request.get("college_filter") == "on":
-            people = Person.query().filter(Person.college == current_person.college).fetch()
-        if self.request.get("year_filter") == "on":
-            people = Person.query().filter(Person.year == current_person.year).fetch()
         if self.request.get("city_filter") == "on":
             people = Person.query().filter(Person.city == current_person.city).fetch()
         if self.request.get("state_filter") == "on":
