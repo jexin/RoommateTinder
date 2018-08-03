@@ -62,7 +62,7 @@ header {
 
 .roomiesItem {
   width: 250px;
-  background-color: #f2fcff;
+  background-color: #d3d3d3;
   list-style-type: none;
   margin: 20px 10px 10px 20px;
   padding: 0px;
@@ -72,15 +72,18 @@ header {
 }
 
 #likeRoomiesItem {
-  border: 2px solid #eedd82;
+  border: 2px solid #fffd8d;
+  background-color: #fffd8d;
 }
 
 #likedRoomiesItem {
   border: 2px solid pink;
+  background-color: pink;
 }
 
 #matchedRoomiesItem {
-  border: 2px solid #005792;
+  border: 2px solid #99CCFF;
+  background-color: #99CCFF;
 }
 
 #name {

@@ -322,6 +322,7 @@ class MyMatches(webapp2.RequestHandler):
             "matches" : matches,
             "logout_url" : logout_url,
         }
+        logging.info(matches)
         template = env.get_template("templates/mymatches.html")
         self.response.write(template.render(templateVars))
 
