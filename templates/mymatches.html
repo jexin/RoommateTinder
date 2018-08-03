@@ -8,35 +8,32 @@
     <li id="logo">ROFL</li>
     <li><a href="/potentialroomies">Home</a></li>
     <li><a href="/about">About Us</a></li>
-    <li id="floatRight">
-        <a href={{logout_url}}>Log out</a>
+    <li id="floatRight"><a href={{logout_url}}>Log out</a>
     </li>
     <li id="floatRight"><a href="/profile?key={{current_person.key.urlsafe()}}">My Profile</a></li>
     <li id="floatRight"><a href="/mymatches">My Matches</a></li>
   </ul>
 </div>
 
-<!-- Tab links -->
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'matches')" id="defaultOpen">Matches</button>
   <button class="tablinks" onclick="openTab(event, 'likes')">People I liked</button>
   <button class="tablinks" onclick="openTab(event, 'likers')">People who liked me</button>
 </div>
 
-<!-- Tab content -->
 <div id="matches" class="tabcontent">
   <h3>Matches</h3>
   <div id="right">
     <ul id="roomiesList">
       {% for person in matches %}
         {% if current_person.key != person.key %}
-        <div class="roomiesItem" id = "matchedRoomiesItem">
-          <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
-          <div class="info" id="name"><li>{{person.name}}</li></div>
-          <div class="info">{{person.year}} at {{person.college}}</div>
-          <div class="info">{{person.city}}, {{person.state}}</div>
-          <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
-        </div>
+          <div class="roomiesItem" id = "matchedRoomiesItem">
+            <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
+            <div class="info" id="name"><li>{{person.name}}</li></div>
+            <div class="info">{{person.year}} at {{person.college}}</div>
+            <div class="info">{{person.city}}, {{person.state}}</div>
+            <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
+          </div>
         {% endif %}
       {% endfor %}
     </ul>
@@ -49,13 +46,13 @@
     <ul id="roomiesList">
       {% for person in people_person_likes %}
         {% if current_person.key !=  person.key %}
-        <div class="roomiesItem" id = "likeRoomiesItem">
-          <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
-          <div class="info" id="name"><li>{{person.name}}</li></div>
-          <div class="info">{{person.year}} at {{person.college}}</div>
-          <div class="info">{{person.city}}, {{person.state}}</div>
-          <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
-        </div>
+          <div class="roomiesItem" id = "likeRoomiesItem">
+            <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
+            <div class="info" id="name"><li>{{person.name}}</li></div>
+            <div class="info">{{person.year}} at {{person.college}}</div>
+            <div class="info">{{person.city}}, {{person.state}}</div>
+            <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
+          </div>
         {% endif %}
       {% endfor %}
     </ul>
@@ -68,32 +65,17 @@
     <ul id="roomiesList">
       {% for person in people_likes_person %}
         {% if current_person.key !=  person.key %}
-        <div class="roomiesItem" id = "likedRoomiesItem">
-          <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
-          <div class="info" id="name"><li>{{person.name}}</li></div>
-          <div class="info">{{person.year}} at {{person.college}}</div>
-          <div class="info">{{person.city}}, {{person.state}}</div>
-          <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
-        </div>
+          <div class="roomiesItem" id = "likedRoomiesItem">
+            <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
+            <div class="info" id="name"><li>{{person.name}}</li></div>
+            <div class="info">{{person.year}} at {{person.college}}</div>
+            <div class="info">{{person.city}}, {{person.state}}</div>
+            <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
+          </div>
         {% endif %}
       {% endfor %}
     </ul>
   </div>
 </div>
-
-
-<!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCLJddXystpgO4qnhwmfgG8JzI4Yd4TOPY",
-    authDomain: "rofl-cssi.firebaseapp.com",
-    databaseURL: "https://rofl-cssi.firebaseio.com",
-    projectId: "rofl-cssi",
-    storageBucket: "rofl-cssi.appspot.com",
-    messagingSenderId: "803516191779"
-  };
-  firebase.initializeApp(config);
-</script> -->
 
 <script src="/javascript/mymatches.js"></script>

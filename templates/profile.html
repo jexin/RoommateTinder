@@ -7,9 +7,7 @@
     <li id="logo">ROFL</li>
     <li><a href="/potentialroomies">Home</a></li>
     <li><a href="/about">About Us</a></li>
-    <li id="floatRight">
-        <a href={{logout_url}}>Log out</a>
-    </li>
+    <li id="floatRight"><a href={{logout_url}}>Log out</a></li>
     <li id="floatRight"><a href="/profile?key={{current_person.key.urlsafe()}}">My Profile</a></li>
     <li id="floatRight"><a href="/mymatches">My Matches</a></li>
   </ul>
@@ -35,9 +33,9 @@
        <img class="image" id="myItem" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
      </div>
     {% else %}
-    <div>
-      <img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
-    </div>
+      <div>
+        <img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Image not found">
+      </div>
    {% endif %}
 
   <div id="left">
@@ -166,17 +164,18 @@
         </div>
       </form>
     {% else %}
-        {% if person in people_person_likes %}
-          <div id="liked">Liked</div>
-        {% else %}
-          <form action="/profile" method="post">
+      {% if person in people_person_likes %}
+        <div id="liked">Liked</div>
+      {% else %}
+        <form action="/profile" method="post">
           <input type="hidden" name="viewed_profile_key" value="{{person.key.urlsafe()}}">
           <button style="float:left" name="like" id="like">Like</button>
-          </form>
-        {% endif %}
+        </form>
+      {% endif %}
     {% endif %}
     <br>
   </div>
+
   <div id="right">
     <div class="info" id="aboutme">ABOUT ME</div>
     <div class="info">Favorite hobby: {{person.hobbies}}</div>
@@ -195,8 +194,8 @@
 
 {% if is_my_profile %}
   <form id="upload" action="/upload_photo" method="post" enctype="multipart/form-data">
-      Upload profile photo: <input id="imgUpload" name="image" type="file"><br><br>
-      <button id="uploadBtn">Upload</button>
+    Upload profile photo: <input id="imgUpload" name="image" type="file"><br><br>
+    <button id="uploadBtn">Upload</button>
   </form>
   <br><br><br>
 {% endif %}
@@ -207,7 +206,6 @@
   <div class="state">{{person.state}}</div>
   <div class="smoke">{{person.smoke}}</div>
   <div class="hobbies">{{person.hobbies}}</div>
-
 </div>
 
 <script src="/javascript/profile.js"></script>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
-<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 </head>
-<!--link to potential roommates-->
+
 <link rel="stylesheet" href="/stylesheets/potentialroomies.css">
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 <title>Home</title>
@@ -12,9 +12,7 @@
     <li id="logo">ROFL</li>
     <li><a href="/potentialroomies">Home</a></li>
     <li><a href="/about">About Us</a></li>
-    <li id="floatRight">
-        <a href={{logout_url}}>Log out</a>
-    </li>
+    <li id="floatRight"><a href={{logout_url}}>Log out</a></li>
     <li id="floatRight"><a href="/profile?key={{current_person.key.urlsafe()}}">My Profile</a></li>
     <li id="floatRight"><a href="/mymatches">My Matches</a></li>
   </ul>
@@ -24,7 +22,7 @@
 
 <div class="container">
   <div id="left">
-      <form action="/potentialroomies" method="get">
+    <form action="/potentialroomies" method="get">
       <div>
         <h4 class="filter">Filter by:</h4>
       </div>
@@ -45,7 +43,7 @@
         <label for="city">City</label>
       </div>
       <div class="filter">
-        <input id="state_filter" name="state_filter" type="checkbox">
+      <input id="state_filter" name="state_filter" type="checkbox">
         <label for="state">State</label>
       </div>
       <div class="filter">
@@ -61,12 +59,12 @@
         <label for="hobbies">Hobbies</label>
       </div>
       <button id="filterbutton">Filter</button>
-      </form>
-      <p class="colorcode"><span style="color:#005792">BLUE</span> = Matched</p>
-      <p class="colorcode"><span style="color:pink">PINK</span> = Liked you</p>
-      <p class="colorcode"><span style="color:#ffd700">YELLOW</span> = Liked by you</p>
-      <p class="colorcode"><span style="color:gray">GRAY</span> = Others</p>
-    </div>
+    </form>
+    <p class="colorcode"><span style="color:#005792">BLUE</span> = Matched</p>
+    <p class="colorcode"><span style="color:pink">PINK</span> = Liked you</p>
+    <p class="colorcode"><span style="color:#ffd700">YELLOW</span> = Liked by you</p>
+    <p class="colorcode"><span style="color:gray">GRAY</span> = Others</p>
+  </div>
 
   <div id="right">
     <ul id="roomiesList">
@@ -75,37 +73,37 @@
           <p id="none">We're sorry! There are no current matches right now.</p>
         {% elif current_person.key !=  person.key %}
           {% if person in matches %}
-          <div class="roomiesItem" id = "matchedRoomiesItem">
-            <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
-            <div class="info" id="name"><li>{{person.name}}</li></div>
-            <div class="info">{{person.year}} at {{person.college}}</div>
-            <div class="info">{{person.city}}, {{person.state}}</div>
-            <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
-          </div>
+            <div class="roomiesItem" id = "matchedRoomiesItem">
+              <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
+              <div class="info" id="name"><li>{{person.name}}</li></div>
+              <div class="info">{{person.year}} at {{person.college}}</div>
+              <div class="info">{{person.city}}, {{person.state}}</div>
+              <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
+            </div>
           {% elif person in people_likes_person %}
-          <div class="roomiesItem" id = "likedRoomiesItem">
-            <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
-            <div class="info" id="name"><li>{{person.name}}</li></div>
-            <div class="info">{{person.year}} at {{person.college}}</div>
-            <div class="info">{{person.city}}, {{person.state}}</div>
-            <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
-          </div>
+            <div class="roomiesItem" id = "likedRoomiesItem">
+              <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
+              <div class="info" id="name"><li>{{person.name}}</li></div>
+              <div class="info">{{person.year}} at {{person.college}}</div>
+              <div class="info">{{person.city}}, {{person.state}}</div>
+              <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
+            </div>
           {% elif person in people_person_likes %}
-          <div class="roomiesItem" id = "likeRoomiesItem">
-            <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
-            <div class="info" id="name"><li>{{person.name}}</li></div>
-            <div class="info">{{person.year}} at {{person.college}}</div>
-            <div class="info">{{person.city}}, {{person.state}}</div>
-            <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
-          </div>
+            <div class="roomiesItem" id = "likeRoomiesItem">
+              <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
+              <div class="info" id="name"><li>{{person.name}}</li></div>
+              <div class="info">{{person.year}} at {{person.college}}</div>
+              <div class="info">{{person.city}}, {{person.state}}</div>
+              <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
+            </div>
           {% else %}
-          <div class="roomiesItem">
-            <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
-            <div class="info" id="name"><li>{{person.name}}</li></div>
-            <div class="info">{{person.year}} at {{person.college}}</div>
-            <div class="info">{{person.city}}, {{person.state}}</div>
-            <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
-          </div>
+            <div class="roomiesItem">
+              <div><img class="image" src="/photo?key={{person.key.urlsafe()}}" alt="Photo of {{person.name}}"></div>
+              <div class="info" id="name"><li>{{person.name}}</li></div>
+              <div class="info">{{person.year}} at {{person.college}}</div>
+              <div class="info">{{person.city}}, {{person.state}}</div>
+              <div class="info"><a href="/profile?key={{person.key.urlsafe()}}">View Profile</a></div>
+            </div>
           {% endif %}
         {% endif %}
       {% endfor %}

@@ -12,15 +12,15 @@ header {
 }
 
 #navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #005792;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #005792;
 }
 
 #navbar li {
-    float: left;
+  float: left;
 }
 
 #navbar #floatRight {
@@ -28,8 +28,8 @@ header {
 }
 
 @media screen and (max-width: 600px){
-    #navbar li,
-    #navbar #floatRight {float: none;}
+  #navbar li,
+  #navbar #floatRight {float: none;}
 }
 
 #logo {
@@ -40,17 +40,16 @@ header {
 }
 
 #navbar li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    border-radius: 0px;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border-radius: 0px;
 }
 
-/* Change the link color to #111 (black) on hover */
 #navbar li a:hover {
-    background-color: #00204a;
+  background-color: #00204a;
 }
 
 #roomiesList {
@@ -114,28 +113,28 @@ a:hover, a:visited, a:link, a:active {
 }
 
 #left {
-   float:left;
-   border: 2px solid #005792;
-   margin: 20px 10px 20px 20px;
-   padding: 0 3px;
-   border-radius: 5px;
+  float:left;
+  border: 2px solid #005792;
+  margin: 20px 10px 20px 20px;
+  padding: 0 3px;
+  border-radius: 5px;
  }
 
  .filter {
-   font-size: 15px;
-   margin: 15px;
+  font-size: 15px;
+  margin: 15px;
  }
 
  #filterbutton {
-   margin: 0px 0px 15px 20px;
-   background-color: #005792;
-   color: white;
-   padding: 7px 15px 7px 15px;
-   border-radius: 5px;
-   font-size: 15px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
+  margin: 0px 0px 15px 20px;
+  background-color: #005792;
+  color: white;
+  padding: 7px 15px 7px 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
  }
 
 .colorcode {

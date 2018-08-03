@@ -1,23 +1,19 @@
 // Get the modal
 let modal = document.getElementById('myModal');
-
 // Get the button that opens the modal
 let btn = document.querySelector("button");
 
 if (btn.innerHTML == "Edit Profile") {
   // Get the <span> element that closes the modal
   let span = document.getElementsByClassName("close")[0];
-
   // When the user clicks on the button, open the modal
   btn.onclick = function() {
       modal.style.display = "block";
   }
-
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
       modal.style.display = "none";
   }
-
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function(event) {
       if (event.target == modal) {
@@ -25,14 +21,12 @@ if (btn.innerHTML == "Edit Profile") {
       }
   }
   let upload = document.getElementById("uploadBtn");
-
   upload.addEventListener("click", e => {
     if( document.getElementById("imgUpload").files.length == 0 ){
         alert("no files selected");
         e.preventDefault();
     }
   });
-
   let genders = document.querySelector("#gender");
   let gender = document.querySelector(".gender");
   genders.value = gender.innerHTML;

@@ -34,10 +34,9 @@ class MainPage(webapp2.RequestHandler):
     def get(self):
         # 1. Read the request
         current_user = users.get_current_user()
-        #current_user is NONE right here
         # 2. Read/write from the database
         people = Person.query().fetch()
-        if current_user: #if person exists
+        if current_user:
             current_email = current_user.email()
             current_person = Person.query().filter(Person.email == current_email).get()
             if current_person:
@@ -62,7 +61,7 @@ class MainPage(webapp2.RequestHandler):
         template = env.get_template("templates/home.html")
         self.response.write(template.render(templateVars))
 
-class ProfilePage(webapp2.RequestHandler): #has protection against the back button error (line 69-70)
+class ProfilePage(webapp2.RequestHandler):#has protection against the back button error (line 69-70)
     def get(self):
         # 1. Read the request
         urlsafe_profile_key = self.request.get("key") #get from url
@@ -72,10 +71,9 @@ class ProfilePage(webapp2.RequestHandler): #has protection against the back butt
             return
         else:
             current_person = Person.query().filter(Person.email == current_user.email()).get()
-
         # 2. Read/write from the database
-        key = ndb.Key(urlsafe=urlsafe_profile_key) # from url to key
-        viewed_person = key.get() #from key to person object
+        key = ndb.Key(urlsafe=urlsafe_profile_key)# from url to key
+        viewed_person = key.get()#from key to person object
 
         is_my_profile = current_user and current_user.email() == viewed_person.email
         logout_url = users.create_logout_url("/")
@@ -99,7 +97,6 @@ class ProfilePage(webapp2.RequestHandler): #has protection against the back butt
                 people_likes_person.append(liker)
 
         for like in current_person_likes:
-            # Find likes where the current person is being liked by `like`
             likes = Like.query().filter(Like.liker_key == like.liked_key).filter(Like.liked_key == current_person.key).fetch()
             if likes:
                 mutual = Person.query().filter(Person.key == like.liked_key).get()
@@ -123,7 +120,7 @@ class ProfilePage(webapp2.RequestHandler): #has protection against the back butt
         current_user = users.get_current_user()
         current_person = Person.query().filter(Person.email == current_user.email()).get()
 
-        viewed_profile_key = self.request.get("viewed_profile_key") #this is the urlsafe key gettingreturned
+        viewed_profile_key = self.request.get("viewed_profile_key") #this is the urlsafe key getting returned
         key = ndb.Key(urlsafe=viewed_profile_key)
         viewed_profile = key.get()
         #2
@@ -151,9 +148,8 @@ class CreateHandler(webapp2.RequestHandler):
         sleep = self.request.get("sleep")
         smoke = self.request.get("smoke")
         hobbies = self.request.get("hobbies")
-        current_user = users.get_current_user() #step1
-        email = current_user.email() #step2
-
+        current_user = users.get_current_user()
+        email = current_user.email()
         # 2. Read/write from the database
         person = Person(name=name, gender=gender, college=college, year=year, city=city, state=state, bio=bio, email=email, sleep=sleep, smoke=smoke, hobbies=hobbies)
         person.put()
@@ -224,7 +220,6 @@ class PotentialRoomies(webapp2.RequestHandler):
         else:
             current_person = Person.query().filter(Person.email == current_user.email()).get()
         #2
-
         people = Person.query()
 
         if self.request.get("college_filter") == "on":
@@ -266,7 +261,6 @@ class PotentialRoomies(webapp2.RequestHandler):
                 people_likes_person.append(liker)
 
         for like in current_person_likes:
-            # Find likes where the current person is being liked by `like`
             likes = Like.query().filter(Like.liker_key == like.liked_key).filter(Like.liked_key == current_person.key).fetch()
             if likes:
                 mutual = Person.query().filter(Person.key == like.liked_key).get()
@@ -294,7 +288,6 @@ class MyMatches(webapp2.RequestHandler):
             return
         else:
             current_person = Person.query().filter(Person.email == current_user.email()).get()
-
         #2
         current_person_likes = Like.query().filter(Like.liker_key == current_person.key).fetch()
         likes_current_person = Like.query().filter(Like.liked_key == current_person.key).fetch()
@@ -315,7 +308,6 @@ class MyMatches(webapp2.RequestHandler):
                 people_likes_person.append(liker)
 
         for like in current_person_likes:
-            # Find likes where the current person is being liked by `like`
             likes = Like.query().filter(Like.liker_key == like.liked_key).filter(Like.liked_key == current_person.key).fetch()
             if likes:
                 mutual = Person.query().filter(Person.key == like.liked_key).get()

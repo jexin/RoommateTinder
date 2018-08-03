@@ -2,6 +2,7 @@ body {
   background-color: #d5eeff;
   font-family: 'Playfair Display', serif;
 }
+
 #navbar {
   margin:-8px -8px 5px -8px;
 }
@@ -34,7 +35,7 @@ body {
 }
 
 #navbar li a:hover {
-    background-color: #00204a;
+  background-color: #00204a;
 }
 
 #navbar #floatRight {
@@ -48,4 +49,13 @@ body {
 
 .about {
   margin: 30px 30px 0px 30px;
+}
+
+#pic {
+  border: 2px solid #005792;
+  margin-bottom: 5px;
+  width: 300px;
+  object-fit: cover;
+  padding: 0;
+  border-radius: 5px;
 }

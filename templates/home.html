@@ -12,7 +12,6 @@
     <h5>roommates on fantastic levels</h5>
     <h6>Are you ready to find the perfect roommate for the upcoming school year? Log in to get started.</h6>
   </header>
-
   {% if current_user %}
     Welcome, {{current_user.email()}}
     <a href="{{logout_url}}">Log out</a>
@@ -22,8 +21,7 @@
 
   {% if current_user and not current_person %}
     <br><br>
-    <form action="/create" method="post">
-      <br>
+    <form action="/create" method="post"><br>
       <label>Name:</label>
       <input name="name" maxlength="20" required="required">
       <label>Gender:</label>
@@ -32,8 +30,7 @@
         <option value="Male">Male</option>
         <option value="Other">Other</option>
       </select>
-      <br>
-      <br>
+      <br><br>
       <label>College:</label>
       <input name="college" maxlength="50" required="required">
       <label>Year</label>
